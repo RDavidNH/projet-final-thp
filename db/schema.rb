@@ -106,3 +106,4 @@ ActiveRecord::Schema.define(version: 2019_12_04_074723) do
   add_foreign_key "houses", "users"
   add_foreign_key "testimonials", "users"
 end
+
