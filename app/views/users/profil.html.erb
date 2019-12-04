@@ -1,0 +1,13 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+<%= @user.id%>
+
+ <%= form_tag testimonials_path, method: 'post' do %>
+        <%= label_tag 'Titre' %>
+        <%= text_area_tag 'content'%>
+        <br>
+        
+     
+		<%= submit_tag "Save testimonial" %>
+
+<% end %>

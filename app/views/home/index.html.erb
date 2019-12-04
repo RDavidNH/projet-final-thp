@@ -2,4 +2,18 @@
 <p>Find me in app/views/home/index.html.erb</p>
 <p>sdgfsdfffffffffgfgsdggfsd</p>
 
+ <%= form_tag testimonials_path, method: 'post' do %>
+        <%= label_tag 'Titre' %>
+        <%= text_area_tag 'content'%>
+        <br>
+        
+     
+		<%= submit_tag "Save testimonial" %>
+
+<% end %>
+<% if user_signed_in? %>
+<%= link_to "voir mon profil", users_profil_path %>
 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+<% else %>
+<p>Connectez vous</p>
+<% end %>
