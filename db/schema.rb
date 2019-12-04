@@ -66,10 +66,10 @@ ActiveRecord::Schema.define(version: 2019_12_04_074723) do
   create_table "testimonials", force: :cascade do |t|
     t.string "content"
     t.integer "note"
-    t.bigint "users_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_testimonials_on_users_id"
+    t.index ["user_id"], name: "index_testimonials_on_user_id"
   end
 
   create_table "types", force: :cascade do |t|
@@ -104,5 +104,5 @@ ActiveRecord::Schema.define(version: 2019_12_04_074723) do
   add_foreign_key "houses", "districts"
   add_foreign_key "houses", "types"
   add_foreign_key "houses", "users"
-  add_foreign_key "testimonials", "users", column: "users_id"
+  add_foreign_key "testimonials", "users"
 end
