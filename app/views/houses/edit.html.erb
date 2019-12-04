@@ -1,4 +1,9 @@
-<h1>edit house</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+
+<h3>Modifier <%= @house.title %></h3>
 
 <%= form_tag url_for(action: 'update'), method: 'put' do %>
     <%= label_tag 'Titre' %>
@@ -26,3 +31,7 @@
     <br>
     <button type="submit">Modifier</button>
 <% end %>
+
+        </div>
+    </div>
+</div>
