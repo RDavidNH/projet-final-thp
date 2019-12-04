@@ -1,5 +1,5 @@
 class HousesController < ApplicationController
-    
+
     def index
         @houses = House.all
     end
@@ -35,14 +35,13 @@ class HousesController < ApplicationController
     def edit
         @house = House.find(params[:id])
 
-
     end
 
     def update
         p params
 
         @house = House.find(params[:id])
-        
+
         res = @house.update(
             title: params[:title],
             description: params[:description],
@@ -54,13 +53,17 @@ class HousesController < ApplicationController
             type: Type.find(params[:house][:type_id]),
         )
 
-        if res 
+        if res
             redirect_to house_path(@house.id), flash: {:success => 'Élément modifié avec succès'}
         end
 
     end
 
     def destroy
-        
+        house = House.find(params[:id])
+
+        if house.destroy
+            redirect_to houses_path, flash: {:success => 'Élément supprimé avec succès'}
+        end
     end
 end
