@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get 'users/profil', 'users#profil'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_scope :user do
@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 	  end
   end
 
-  root :to => "devise/sessions#new"
   resources :home
   resources :houses
+  resources :users
+  resources :testimonials
+  root :to => "devise/sessions#new"
 end

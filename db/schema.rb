@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_074723) do
 
   create_table "testimonials", force: :cascade do |t|
     t.string "content"
-    t.integer "note"
+    t.integer "rating"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

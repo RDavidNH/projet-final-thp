@@ -14,3 +14,12 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery-3.2.1.min
+//= require popper.min
+//= require bootstrap.min
+//= require isInViewport.jquery
+//= require jquery.particleground.min
+//= require owl.carousel.min
+//= require jquery.magnific-popup.min
+//= require scrollReveal.min
+
