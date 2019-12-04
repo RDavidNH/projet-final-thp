@@ -12,4 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *
+ *
+ *= require bootstrap.min
+ *= require font-awesome
+ *= require owl.carousel.min
+ *= require magnific-popup
+ *= require style
+ *
  */
