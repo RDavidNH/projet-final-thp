@@ -4,5 +4,8 @@
 <br>
 
 <% @houses.each do |house| %>
-    <%=  link_to house.title, house_path(house.id) %> <br>
+    <%=  link_to house.title, house_path(house.id) %> 
+    <%=  link_to 'Modifier', edit_house_path(house.id) %> 
+    
+    <br>
 <% end %>

@@ -1,0 +1,28 @@
+<h1>edit house</h1>
+
+<%= form_tag url_for(action: 'update'), method: 'put' do %>
+    <%= label_tag 'Titre' %>
+    <%= text_field_tag 'title', @house.title %>
+    <br>
+    <%= label_tag 'Description' %>
+    <%= text_field_tag 'description', @house.description %>
+    <br>
+    <%= label_tag 'Nombre de pièce' %>
+    <%= number_field_tag 'room_number', @house.room_number %>
+    <br>
+    <%= label_tag 'Adresse' %>
+    <%= text_field_tag 'address', @house.address %>
+    <br>
+
+    <%= label_tag 'Disponible' %>
+    <%= radio_button_tag 'status', 'available' %>
+    <%= label_tag 'Indisponible' %>
+    <%= radio_button_tag 'status', 'unavailable' %>
+    <br>
+
+    <%= select("house", "district_id", District.all.collect {|p| [ p.name, p.id ] }, {prompt: 'Selectionnez un quartier'}) %>
+    <%= select("house", "type_id", Type.all.collect {|p| [ p.name, p.id ] }, {prompt: 'Selectionnez un type'}) %>
+
+    <br>
+    <button type="submit">Modifier</button>
+<% end %>
