@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_062733) do
+ActiveRecord::Schema.define(version: 2019_12_04_074723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(version: 2019_12_04_062733) do
     t.index ["user_id"], name: "index_houses_on_user_id"
   end
 
+  create_table "testimonials", force: :cascade do |t|
+    t.string "content"
+    t.integer "note"
+    t.bigint "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_testimonials_on_users_id"
+  end
+
   create_table "types", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -95,4 +104,5 @@ ActiveRecord::Schema.define(version: 2019_12_04_062733) do
   add_foreign_key "houses", "districts"
   add_foreign_key "houses", "types"
   add_foreign_key "houses", "users"
+  add_foreign_key "testimonials", "users", column: "users_id"
 end
