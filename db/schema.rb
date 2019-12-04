@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_123724) do
+ActiveRecord::Schema.define(version: 2019_12_04_062733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2019_12_03_123724) do
     t.index ["city_id"], name: "index_districts_on_city_id"
   end
 
+  create_table "feature_houses", force: :cascade do |t|
+    t.bigint "house_id"
+    t.bigint "feature_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feature_id"], name: "index_feature_houses_on_feature_id"
+    t.index ["house_id"], name: "index_feature_houses_on_house_id"
+  end
+
   create_table "features", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -43,12 +52,13 @@ ActiveRecord::Schema.define(version: 2019_12_03_123724) do
     t.text "description"
     t.integer "room_number"
     t.string "address"
-    t.bigint "city_id"
+    t.string "status"
+    t.bigint "district_id"
     t.bigint "user_id"
     t.bigint "type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["city_id"], name: "index_houses_on_city_id"
+    t.index ["district_id"], name: "index_houses_on_district_id"
     t.index ["type_id"], name: "index_houses_on_type_id"
     t.index ["user_id"], name: "index_houses_on_user_id"
   end
@@ -80,7 +90,9 @@ ActiveRecord::Schema.define(version: 2019_12_03_123724) do
   end
 
   add_foreign_key "districts", "cities"
-  add_foreign_key "houses", "cities"
+  add_foreign_key "feature_houses", "features"
+  add_foreign_key "feature_houses", "houses"
+  add_foreign_key "houses", "districts"
   add_foreign_key "houses", "types"
   add_foreign_key "houses", "users"
 end
