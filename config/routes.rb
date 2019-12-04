@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 
   root :to => "devise/sessions#new"
   resources :home
+  resources :houses
 end
