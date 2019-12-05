@@ -50,9 +50,11 @@ ActiveRecord::Schema.define(version: 2019_12_04_074723) do
   create_table "houses", force: :cascade do |t|
     t.string "title"
     t.text "description"
+    t.bigint "price"
     t.integer "room_number"
     t.string "address"
     t.string "status"
+    t.boolean "is_available"
     t.bigint "district_id"
     t.bigint "user_id"
     t.bigint "type_id"
