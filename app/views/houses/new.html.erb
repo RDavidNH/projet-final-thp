@@ -3,7 +3,7 @@
         <div class="col-sm-12">
 
             <h1>Créer une offre</h1>
-            
+
             <%= form_tag url_for(action: 'create'), method: 'post' do %>
             <div class="row">
                 <div class="col-sm-8">
@@ -23,6 +23,11 @@
                         <%= label_tag 'Adresse' %>
                         <%= text_field_tag 'address', @house.address, class:'form-control' %>
                     </div>
+
+                    <% Feature.all.each do |feat| %>
+                        <%= check_box(:features, feat.name, {}, feat.id) %>
+                        <%= label_tag feat.name %>
+                    <% end %>
                 </div>
 
                 <div class="col-sm-4">
@@ -61,15 +66,15 @@
                     </div>
                     <div class="form-row">
                         <div class="col">
-                            <div class="custom-control">
-                                <%= radio_button_tag 'is_available', 'available', class:'custom-control-input' %>
-                                <%= label_tag 'Disponible' %>
+                            <div class="custom-control custom-radio">
+                                <%= radio_button_tag 'is_available', 'available', true, class:'custom-control-input' %>
+                                <%= label_tag "is_available_available", 'Disponible', class:"custom-control-label" %>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="custom-control">
-                                <%= radio_button_tag 'is_available', 'unavailable', class:'custom-control-input' %>
-                                <%= label_tag 'Indisponible' %>
+                            <div class="custom-control custom-radio">
+                                <%= radio_button_tag :is_available, 'unavailable', false, class:'custom-control-input' %>
+                                <%= label_tag "is_available_unavailable", 'Indisponible', class:"custom-control-label" %>
                             </div>
                         </div>
                     </div>
