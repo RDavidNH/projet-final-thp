@@ -16,10 +16,10 @@
 				        			<% end %>
 		   						
 		        			<%end%>
-		        			<% (5 - @testimonial.rating).times do |index|%>
-                                    <%= f.label "rating_#{index}" do %>
-				        				<li class="stars-ico stars-icon-off" style="float: left" data-stars="<%= index %>" id="starid-<%= index %>"> </li>		        
-				        				<%= f.radio_button :rating, index %>
+		        			<% for index in @testimonial.rating...5%>
+                                    <%= f.label "rating_#{index + 1}" do %>
+				        				<li class="stars-ico stars-icon-off" style="float: left" data-stars="<%= index + 1%>" id="starid-<%= index + 1%>"> </li>		        
+				        				<%= f.radio_button :rating, index+1 %>
 				        			<% end %>
                             <% end %>
 
