@@ -1,0 +1,30 @@
+<p>Edit your testimonial</p>
+
+<%= form_for @testimonial do |f|%>
+        <%= f.label 'Titre' %>
+        <%= f.text_area 'content'%>
+        <br>
+ 
+	        	<p> Rate Us</p>
+	        		<ul>
+	        			<% if @testimonial.rating <=5 %>
+		        			<% for index in 1..@testimonial.rating do %>
+		        				
+			        				<%= f.label "rating_#{index}" do %>
+				        				<li class="stars-ico stars-icon-on" style="float: left" data-stars="<%= index %>" id="starid-<%= index %>"> </li>
+				        				<%= f.radio_button :rating, index %>
+				        			<% end %>
+		   						
+		        			<%end%>
+		        			<% (5 - @testimonial.rating).times do |index|%>
+                                    <%= f.label "rating_#{index}" do %>
+				        				<li class="stars-ico stars-icon-off" style="float: left" data-stars="<%= index %>" id="starid-<%= index %>"> </li>		        
+				        				<%= f.radio_button :rating, index %>
+				        			<% end %>
+                            <% end %>
+
+	        			<%end%>
+	        		</ul>
+<br>
+		<%= submit_tag "Save testimonial" %>
+<% end %>

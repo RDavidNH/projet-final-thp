@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   resources :home
   resources :users
   resources :testimonials
-  root :to => "devise/sessions#new"
+  # root :to => "devise/sessions#new"
 end

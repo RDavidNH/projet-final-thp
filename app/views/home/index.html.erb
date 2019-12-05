@@ -628,6 +628,7 @@
             <!--end #section.block-->
 
         </div>
+
         <!--end content-->
 
         <!--*********************************************************************************************************-->
@@ -714,3 +715,32 @@
         <!--end modal-dialog-->
     </div>
     <!--end modal-->
+
+        <div class="testimonial-show">
+            <% Testimonial.all.each do |index| %>
+                <%if index.rating != nil %>
+                    <ul>
+                            <% if index.rating <= 5%>
+                                <% index.rating.times do %>
+                                    <li class="stars-icon-on" style="float: left"> </li>
+                                <%end%>
+                                <% (5 - index.rating).times do %>
+                                    <li class="stars-ico stars-icon-off" style="float: left"> </li>
+                                <% end %>
+                            <% end %>
+                    </ul> <br>
+
+                <%else%>
+                    <ul>
+                        <% (5).times do %>
+                                <li class="stars-ico stars-icon-off" style="float: left"> </li>
+                        <% end %>
+                    </ul> <br>
+                <% end %>
+            <%end%>
+        </div>
+<br>
+<br>
+<br>
+
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
