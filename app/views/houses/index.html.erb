@@ -31,7 +31,7 @@
                 </div>
                 <div class="box__header pt-3">
                     <h4><%= house.title %></h4>
-                    <h4 class="price"><%= '140.000' %> Ar</h4>
+                    <h4 class="price"><%= number_to_currency(house.price, unit: "Ar ", separator: ",", delimiter: ".", precision: 0) %></h4>
                 </div>
                 <div class="box__content p-0">
                     <h5 class="pt-3 text-align-left pl-5 pr-5">A louer</h5>
