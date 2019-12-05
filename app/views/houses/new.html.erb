@@ -1,27 +1,87 @@
-<h1>New house</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
 
-<%= form_tag url_for(action: 'create'), method: 'post' do %>
-    <%= label_tag 'Titre' %>
-    <%= text_field_tag 'title', @house.title %>
-    <br>
-    <%= label_tag 'Description' %>
-    <%= text_field_tag 'description', @house.description %>
-    <br>
-    <%= label_tag 'Nombre de pièce' %>
-    <%= number_field_tag 'room_number', @house.room_number %>
-    <br>
-    <%= label_tag 'Adresse' %>
-    <%= text_field_tag 'address', @house.address %>
-    <br>
+            <h1>New house</h1>
 
-    <%= label_tag 'Disponible' %>
-    <%= radio_button_tag 'status', 'available' %>
-    <%= label_tag 'Indisponible' %>
-    <%= radio_button_tag 'status', 'unavailable' %>
-    <br>
+            <%= form_tag url_for(action: 'create'), method: 'post' do %>
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <%= label_tag 'Titre' %>
+                        <%= text_field_tag 'title', @house.title, class:'form-control' %>
+                    </div>
+                    <div class="form-group">
+                        <%= label_tag 'Description' %>
+                        <%= text_area_tag 'description', @house.description, class:'form-control' %>
+                    </div>
+                    <div class="form-group">
+                        <%= label_tag 'Nombre de pièce' %>
+                        <%= number_field_tag 'room_number', @house.room_number, class:'form-control' %>
+                    </div>
+                    <div class="form-group">
+                        <%= label_tag 'Adresse' %>
+                        <%= text_field_tag 'address', @house.address, class:'form-control' %>
+                    </div>
+                </div>
 
-    <%= select("house", "district_id", District.all.collect {|p| [ p.name, p.id ] }, {prompt: 'Selectionnez un quartier'}) %>
-    <%= select("house", "type_id", Type.all.collect {|p| [ p.name, p.id ] }, {prompt: 'Selectionnez un type'}) %>
+                <div class="col-sm-4">
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                <%= label_tag 'Vente ou location?' %>
+                                <%= select("house", "status", {'Louer' => 'rent', 'Vendre' => 'sell'}, {prompt: 'Selectionnez un status'}, class:'custom-select') %>
+                            </div>
+                        </div>
+                    </div>
 
-    <button type="submit">Créer</button>
-<% end %>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                <%= label_tag 'Prix' %>
+                                <%= number_field_tag 'price', @house.price, class:'form-control' %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                <%= label_tag 'Quartier' %>
+                                <%= select("house", "district_id", District.all.collect {|p| [ p.name, p.id ] }, {prompt: 'Selectionnez un quartier'}, class:'custom-select') %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                <%= label_tag 'Type' %>
+                                <%= select("house", "type_id", Type.all.collect {|p| [ p.name, p.id ] }, {prompt: 'Selectionnez un type'}, class:'custom-select') %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="custom-control">
+                                <%= radio_button_tag 'status', 'available', class:'custom-control-input' %>
+                                <%= label_tag 'Disponible' %>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="custom-control">
+                                <%= radio_button_tag 'status', 'unavailable', class:'custom-control-input' %>
+                                <%= label_tag 'Indisponible' %>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Créer</button>
+            <% end %>
+
+        </div>
+    </div>
+</div>

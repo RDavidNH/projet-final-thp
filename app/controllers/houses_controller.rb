@@ -13,14 +13,16 @@ class HousesController < ApplicationController
     end
 
     def create
-        p params
+        puts params
 
         @house = House.new(
             title: params[:title],
             description: params[:description],
             room_number: params[:room_number],
             address: params[:address],
-            status: params[:status],
+            price: params[:price],
+            status: params[:house][:status],
+            is_available: params[:is_available],
             district: District.find(params[:house][:district_id]),
             user: User.find(1),
             type: Type.find(params[:house][:type_id]),
@@ -47,7 +49,9 @@ class HousesController < ApplicationController
             description: params[:description],
             room_number: params[:room_number],
             address: params[:address],
-            status: params[:status],
+            price: params[:price],
+            status: params[:house][:status],
+            is_available: params[:is_available],
             district: District.find(params[:house][:district_id]),
             user: User.find(1),
             type: Type.find(params[:house][:type_id]),

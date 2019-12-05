@@ -13,6 +13,7 @@ users = []
 types_obj = []
 
 types = ['Villa', 'Appartement', 'Bureau', 'Studio', 'Manoir']
+status = ['sell', 'rent']
 
 10.times do
     cities << City.create(
@@ -51,7 +52,6 @@ end
     )
 end
 
-puts districts.size 
 
 20.times do |i|
     House.create(
@@ -60,7 +60,7 @@ puts districts.size
         room_number: rand(1..6),
         address: Faker::Address.full_address,
         price: 140000,
-        status: "rent",
+        status: status.sample,
         is_available: true,
         district: districts.sample,
         user: users.sample,
