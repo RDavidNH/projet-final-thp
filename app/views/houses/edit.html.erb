@@ -29,7 +29,6 @@
                     <div class="form-row">
                         <div class="col">
                             <div class="form-group">
-                                <% p @house %>
                                 <%= label_tag 'Vente ou location?' %>
                                 <%= select("house", "status", {'Louer' => 'rent', 'Vendre' => 'sell'}, {prompt: 'Selectionnez un status', selected: @house.status}, class:'custom-select') %>
                             </div>
