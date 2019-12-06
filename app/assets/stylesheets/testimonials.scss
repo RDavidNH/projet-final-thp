@@ -1,3 +1,31 @@
 // Place all the styles related to the testimonials controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.stars-icon-on {
+	list-style: none;
+	background-size: cover !important;
+	width: 16px;
+	height: 16px;
+	background: url('/assets/star-on.png') no-repeat;
+}
+
+.stars-icon-off {
+	list-style: none;
+	background-size: cover !important;
+	width: 16px;
+	height: 16px;
+	background: url('/assets/star-off.png') no-repeat;
+}
+
+#rating_1, #rating_2, #rating_3, #rating_4, #rating_5 {
+	display: none;
+}
+
+#testimonial_rating_1, #testimonial_rating_2, #testimonial_rating_3, #testimonial_rating_4, #testimonial_rating_5 {
+	display: none;
+}
+
+.rating-ul label{
+	margin: 0px;
+}

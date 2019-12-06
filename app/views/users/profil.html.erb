@@ -1,13 +1,37 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
-<%= @user.id%>
-
- <%= form_tag testimonials_path, method: 'post' do %>
-        <%= label_tag 'Titre' %>
+<% if current_user.testimonial %>
+	<%= link_to "Edit", edit_testimonial_path(current_user.testimonial.id) %>
+	<div class="rating">
+	        	<p> Rate Us</p>
+	        	<div>
+	        		<ul>
+	        			<% for index in 1..5 do %>
+	        				<li class="stars-ico stars-icon-off" style="float: left" data-stars="<%= index %>" data-testimonial-id="<%=@user.testimonial.id%>" id="starid-<%= index %>"> </li>
+	        			<%end%>
+	        		</ul>
+	        	</div>
+	        </div>
+	<% else %>
+ 	<%= form_tag testimonials_path do %>
+        <%= label_tag 'Contenu' %>
         <%= text_area_tag 'content'%>
         <br>
-        
-     
-		<%= submit_tag "Save testimonial" %>
+ 
+	        	<p> Rate Us</p>
+	        		<ul class="rating-ul">
+	        			<% for index in 1..5 do %>
+	        				
+		        				<%= label_tag "rating_#{index}" do %>
+			        				<li class="stars-ico stars-icon-off" style="float: left" data-stars="<%= index %>" id="starid-<%= index %>"> </li>
 
+			        				<%= radio_button_tag :rating, index%>
+			        			<% end %>
+	   
+	        			<%end%>
+	        		</ul>
+	<br>
+		<%= submit_tag "Save testimonial" %>
+	<% end %>
 <% end %>
+

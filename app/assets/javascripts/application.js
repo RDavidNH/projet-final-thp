@@ -12,14 +12,27 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
-//= require_tree .
-//= require jquery-3.2.1.min
+// require turbolinks
+//
+//
+//= require jquery-3.3.1.min
+//= require jquery-migrate-3.0.1.min
+//= require jquery-ui
 //= require popper.min
 //= require bootstrap.min
+//= require owl.carousel.min
+//= require mediaelement-and-player.min
+//= require jquery.stellar.min
+//= require jquery.countdown.min
+//= require jquery.magnific-popup.min
+//= require bootstrap-datepicker.min
+//= require aos
 //= require isInViewport.jquery
 //= require jquery.particleground.min
 //= require owl.carousel.min
 //= require jquery.magnific-popup.min
 //= require scrollReveal.min
-
+//= require main
+//= require rating
+//=
+//= require_tree .
