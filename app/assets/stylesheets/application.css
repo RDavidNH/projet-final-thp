@@ -13,8 +13,19 @@
  *= require_tree .
  *= require_self
  *
- *
+ *= require icomoon/style
  *= require bootstrap.min
+ *= require magnific-popup
+ *= require jquery-ui
+ *= require owl.carousel.min
+ *= require owl.theme.default.min
+ *= require bootstrap-datepicker
+ *= require mediaelementplayer
+ *= require animate
+ *= require flaticon/font/flaticon
+ *= require flaticon-2/font/flaticon
+ *= require fl-bigmug-line
+ *= require aos
  *= require font-awesome
  *= require owl.carousel.min
  *= require magnific-popup
