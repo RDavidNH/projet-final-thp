@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hoomies</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500"> -->
+
+  </head>
+
+  <body data-spy="scroll" data-target=".navbar">
+    <div class="site-loader"></div>
+
+    <%= render 'shared/small_nav' %>
+
+     <!-- <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p> -->
+    <%= yield %>
+
+    <%= render 'shared/footer' %>
+
+  </body>
+</html>

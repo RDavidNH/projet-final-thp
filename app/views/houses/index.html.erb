@@ -1,59 +1,59 @@
+<div class="site-section site-section-sm pb-0">
 <div class="container">
+
     <div class="row">
-        <div class="col-sm-12">
-            <h1>Houses</h1>
+        <div class="col-sm-12 mb-2">
+            <h1>NOS OFFRES </h1>
+            <hr>
+            <h3>Ventes et locations</h3>
         </div>
     </div>
+
     <div class="row">
-        <!--
-        <div class="col-sm-12">
-            <%= link_to 'New house', new_house_path %>
-            <br>
-
-            <% @houses.each do |house| %>
-            <%=  link_to house.title, house_path(house.id) %>
-            <%=  link_to 'Modifier', edit_house_path(house.id) %>
-
-            <br>
-            <% end %>
-        </div>
-        -->
         <% @houses.each do |house| %>
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="property-entry h-100">
+                <a href="<%= house_path(house.id) %>" class="property-thumbnail">
+                  <div class="offer-type-wrap">
+                    <span class="offer-type bg-danger">Sale</span>
+                    <span class="offer-type bg-success">Rent</span>
+                  </div>
+                  <img src="<%= image_url('img_1.jpg') %>" alt="Image" class="img-fluid">
+                </a>
+                <div class="p-4 property-body">
+                  <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a>
+                  <h2 class="property-title"><a href="<%= house_path(house.id) %>"><%= house.title %></a></h2>
+                  <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span><%= house.address %></span>
+                  <strong class="property-price text-primary mb-3 d-block text-success"><%= house.price %></strong>
+                  <ul class="property-specs-wrap mb-3 mb-lg-0">.
+                      <% house.features.each do |feat| %>
+                    <li>
+                      <span class="property-specs"><%= feat.name %></span>
+                      <!-- <span class="property-specs-number">2 <sup>+</sup></span> -->
+                    </li>
+                    <% end %>
+                    <!-- <li>
+                      <span class="property-specs">Beds</span>
+                      <span class="property-specs-number">2 <sup>+</sup></span>
 
-    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-        <a href="<%= house_path(house.id) %>">
-        <div class="box box--pricing" data-scroll-reveal="enter bottom and move 10px">
-            <div class="box__wrapper shadow-sm">
-                <div class="box__image **height-300px">
-                    <div class="**img-into-bg">
-                        <%= image_tag 'img1', style: 'width:100%' %>
-                    </div>
+                    </li>
+                    <li>
+                      <span class="property-specs">Baths</span>
+                      <span class="property-specs-number">2</span>
+
+                    </li>
+                    <li>
+                      <span class="property-specs">SQ FT</span>
+                      <span class="property-specs-number">7,000</span>
+
+                    </li> -->
+                  </ul>
+
                 </div>
-                <div class="box__header pt-3">
-                    <h4><%= house.title %></h4>
-                    <h4 class="price"><%= number_to_currency(house.price, unit: "Ar ", separator: ",", delimiter: ".", precision: 0) %></h4>
-                </div>
-                <div class="box__content p-0">
-                    <h5 class="pt-3 text-align-left pl-5 pr-5">A louer</h5>
-                    <!-- <ul class="list-unstyled">
-                        <li>245m<sup>2</sup></li>
-                        <li>1 Bathroom</li>
-                        <li>10 m<sup>2</sup> Balcony</li>
-                    </ul> -->
-                    <p class="text-align-left pl-5 pr-5 m-0"><%= house.description %></p>
-                </div>
-                <!--
-                <div class="box__footer">
-                    <%= link_to 'Voir', house_path(house.id), class: 'btn btn-primary' %>
-                </div>
-                -->
+              </div>
             </div>
-            <!--end box__wrapper-->
-        </div>
-        <!--end box-pricing-->
-        </a>
-    </div>
         <% end %>
 
     </div>
+</div>
 </div>

@@ -1,27 +1,40 @@
-<div class="container">
+<div class="container my-5">
     <div class="row">
         <div class="col-sm-12">
 
-            <h1>New house</h1>
+            <h1>Modifier</h1>
+            <h3><%= @house.title %></h3>
 
-            <%= form_tag url_for(action: 'create'), method: 'post' do %>
+            <%= form_tag url_for(action: 'update'), method: 'put' do %>
             <div class="row">
                 <div class="col-sm-8">
                     <div class="form-group">
                         <%= label_tag 'Titre' %>
-                        <%= text_field_tag 'title', @house.title, class:'form-control' %>
+                        <%= text_field :house, :title, class:'form-control' %>
+                        <span class="text-danger"><%= @house.errors.messages[:title].first  %></span>
                     </div>
                     <div class="form-group">
                         <%= label_tag 'Description' %>
-                        <%= text_area_tag 'description', @house.description, class:'form-control' %>
+                        <%= text_area :house, :description, class:'form-control', rows: 5 %>
+                        <span class="text-danger"><%= @house.errors.messages[:description].first  %></span>
                     </div>
                     <div class="form-group">
                         <%= label_tag 'Nombre de pièce' %>
-                        <%= number_field_tag 'room_number', @house.room_number, class:'form-control' %>
+                        <%= number_field :house, :room_number, class:'form-control' %>
+                        <span class="text-danger"><%= @house.errors.messages[:room_number].first  %></span>
                     </div>
                     <div class="form-group">
                         <%= label_tag 'Adresse' %>
-                        <%= text_field_tag 'address', @house.address, class:'form-control' %>
+                        <%= text_field :house, :address, class:'form-control' %>
+                        <span class="text-danger"><%= @house.errors.messages[:address].first  %></span>
+                    </div>
+                    <div class="form-group">
+                        <% Feature.all.each do |feat| %>
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <%= check_box_tag 'house[features][]', feat.id, @house.features.exists?(feat.id), id: "house_features_#{feat.id}", class: 'custom-control-input' %>
+                            <%= label_tag "house_features_#{feat.id}", feat.name, class: 'custom-control-label' %>
+                        </div>
+                        <% end %>
                     </div>
                 </div>
 
@@ -30,7 +43,8 @@
                         <div class="col">
                             <div class="form-group">
                                 <%= label_tag 'Vente ou location?' %>
-                                <%= select("house", "status", {'Louer' => 'rent', 'Vendre' => 'sell'}, {prompt: 'Selectionnez un status', selected: @house.status}, class:'custom-select') %>
+                                <%= select(:house, :status, options_for_select([['Louer', 'rent'], ['Vendre', 'sell']], @house.status),{}, class: 'custom-select') %>
+                                <span class="text-danger"><%= @house.errors.messages[:status].first  %></span>
                             </div>
                         </div>
                     </div>
@@ -39,7 +53,8 @@
                         <div class="col">
                             <div class="form-group">
                                 <%= label_tag 'Prix' %>
-                                <%= number_field_tag 'price', @house.price, class:'form-control' %>
+                                <%= number_field :house, :price, class:'form-control' %>
+                                <span class="text-danger"><%= @house.errors.messages[:price].first  %></span>
                             </div>
                         </div>
                     </div>
@@ -47,7 +62,8 @@
                         <div class="col">
                             <div class="form-group">
                                 <%= label_tag 'Quartier' %>
-                                <%= select("house", "district_id", District.all.collect {|p| [ p.name, p.id ] }, {prompt: 'Selectionnez un quartier'}, class:'custom-select') %>
+                                <%= select(:house, :district_id, District.all.collect {|p| [ p.name, p.id ] }, {prompt: 'Selectionnez un quartier'}, class:'custom-select') %>
+                                <span class="text-danger"><%= @house.errors.messages[:district_id].first  %></span>
                             </div>
                         </div>
                     </div>
@@ -55,30 +71,29 @@
                         <div class="col">
                             <div class="form-group">
                                 <%= label_tag 'Type' %>
-                                <%= select("house", "type_id", Type.all.collect {|p| [ p.name, p.id ] }, {prompt: 'Selectionnez un type'}, class:'custom-select') %>
+                                <%= select(:house, :type_id, Type.all.collect {|p| [ p.name, p.id ] }, {prompt: 'Selectionnez un type'}, class:'custom-select') %>
+                                <span class="text-danger"><%= @house.errors.messages[:type_id].first  %></span>
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col">
-                            <div class="">
-                                <%= radio_button_tag 'is_available', 1, @house.is_available == true, class:'' %>
-                                <%= label_tag 'Disponible' %>
+                            <div class="custom-control custom-radio">
+                                <%= radio_button :house, :is_available, true, class:'custom-control-input' %>
+                                <%= label_tag :house_is_available_true, 'Disponible', class:"custom-control-label" %>
                             </div>
+                            <span class="text-danger"><%= @house.errors.messages[:is_available].first  %></span>
                         </div>
                         <div class="col">
-                            <div class="">
-                                <%= radio_button_tag 'is_available', 0, @house.is_available == false, class:'' %>
-                                <%= label_tag 'Indisponible' %>
+                            <div class="custom-control custom-radio">
+                                <%= radio_button :house, :is_available, false, class:'custom-control-input' %>
+                                <%= label_tag :house_is_available_false, 'Indisponible', class:"custom-control-label" %>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
-            <button type="submit" class="btn btn-primary">Enregister les modifications</button>
+            <%= submit_tag 'Enregister les modifications', class: 'btn btn-primary'%>
             <% end %>
 
         </div>

@@ -19,3 +19,28 @@ body {
 	box-shadow: 0 .1rem 2.5rem rgba(0,0,0,.15) !important;
     transform: translateY(-1.1rem);
 }
+
+.field_with_errors input, .field_with_errors select, .field_with_errors textarea {
+	border: 1px solid #dc3545;
+}
+
+.form-search label {
+    color: #ffffffc9;
+}
+
+.site-navbar .site-navigation .site-menu {
+    font-weight: bold;
+}
+
+.site-navbar .site-navigation .site-menu > li > a {
+    color: white;
+}
+
+.custom-control-label {
+    text-transform: capitalize;
+}
+
+.site-footer {
+    padding: 2em 0;
+    margin-top: 2em;
+}

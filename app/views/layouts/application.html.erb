@@ -48,9 +48,13 @@
   </head>
 
   <body data-spy="scroll" data-target=".navbar">
+    <div class="site-loader"></div>
+
      <!-- <p class="notice"><%= notice %></p>
      <p class="alert"><%= alert %></p> -->
     <%= yield %>
+
+    <%= render 'shared/footer' %>
 
   </body>
 </html>
