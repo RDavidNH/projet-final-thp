@@ -11,9 +11,11 @@ cities = []
 districts = []
 users = []
 types_obj = []
+features_obj = []
 
 types = ['Villa', 'Appartement', 'Bureau', 'Studio', 'Manoir']
 status = ['sell', 'rent']
+features = ['wc', 'douche', 'garage']
 
 10.times do
     cities << City.create(
@@ -52,11 +54,17 @@ end
     )
 end
 
+features.each do |feat|
+    features_obj = Feature.create(
+        name: feat,
+        description: Faker::Lorem.paragraph(sentence_count: 5)
+    )
+end
 
 20.times do |i|
     House.create(
         title: "House #{i+1}",
-        description: Faker::Lorem.paragraph(sentence_count: 5),
+        description: Faker::Lorem.paragraph(sentence_count: 15),
         room_number: rand(1..6),
         address: Faker::Address.full_address,
         price: 140000,
