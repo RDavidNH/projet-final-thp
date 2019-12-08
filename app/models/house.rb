@@ -4,4 +4,5 @@ class House < ApplicationRecord
 	belongs_to :type
 	has_many :feature_houses
 	has_many :features, through: :feature_houses
+    has_many :comments, as: :commentable
 end
