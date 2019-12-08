@@ -5,7 +5,7 @@ class CreateComments < ActiveRecord::Migration[5.2]
       t.bigint :commentable_id
       t.string :commentable_type
       t.text :content
-      t.int :rating
+      t.integer :rating
 
       t.timestamps
     end

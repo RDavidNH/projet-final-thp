@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :city, optional: :true
-  has_one :testimonial 
+  has_one :testimonial
   has_many :houses
+  has_many :comments
+  has_many :houses, through: :comments
 end
