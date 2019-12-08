@@ -7,6 +7,8 @@ ruby '2.5.1'
 # Use stripe for managing transaction
 gem 'devise'
 gem 'stripe'
+gem 'faker'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4'
