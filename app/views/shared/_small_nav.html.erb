@@ -1,0 +1,91 @@
+<style>
+    .site-navbar-small {
+        position: static;
+        background-color: #364e68;
+    }
+
+    .site-navbar .site-navigation .site-menu .has-children ul {
+        z-index: 5555;
+    }
+</style>
+
+
+<div class="site-wrap">
+
+    <div class="site-mobile-menu">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <!-- .site-mobile-menu -->
+
+    <div class="site-navbar site-navbar-small shadow-sm" style="border-bottom: 1px solid white;">
+        <div class="container py-1">
+            <div class="row align-items-center">
+                <div class="col-8 col-md-8 col-lg-4">
+                    <h1 class="mb-0">
+                        <a href="/" class="text-white h2 mb-0">
+                            <strong>Hoomies<span class="text-danger">.</span></strong>
+                        </a>
+                    </h1>
+                </div>
+                <div class="col-4 col-md-4 col-lg-8">
+                    <nav class="site-navigation text-right text-md-right" role="navigation">
+
+                        <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3">
+                            <a href="#" class="site-menu-toggle js-menu-toggle text-white">
+                                <span class="icon-menu h3"></span></a>
+                        </div>
+
+                        <ul class="site-menu js-clone-nav d-none d-lg-block">
+                            <li class="active">
+                                <a href="/">Accueil</a>
+                            </li>
+                            <li>
+                                <a href="<%= new_house_path %>">Créer une annonce</a>
+                            </li>
+                            <li class="has-children">
+                                <a href="properties.html">Je cherche</a>
+                                <ul class="dropdown arrow-top">
+                                    <li>
+                                        <a href="#">À louer</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">À vendre</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Commercial Building</a>
+                                    </li>
+                                    <li class="has-children">
+                                        <a href="#">Sub Menu</a>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a href="#">Menu One</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Menu Two</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Menu Three</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="about.html">À propos</a>
+                            </li>
+                            <li>
+                                <a href="contact.html">Contacts</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>
+                <%= @house.title %>
+            </h1>
+            <%=  link_to 'Modifier', edit_house_path(@house.id) %>
+            <%=  link_to 'Supprimer', house_path(@house.id), method: 'delete' %>
+            <p><%= @house.description %></p>
+            <p><%= @house.status %></p>
+
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Laissez un commentaire</h3>
+            <%= form_tag house_comments_path(@house.id), method: 'post' do %>
+                <div class="form-group">
+                    <%= text_area :comment, :content, class: 'form-control', placeholder: 'Laissez un commentaire ...' %>
+                </div>
+                <%= submit_tag 'Commenter', class: 'btn btn-primary btn-block' %>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 mt-5">
+            <h3>Commentaires</h3>
+
+            <% @house.comments.each do |comment| %>
+                <div class="media">
+                    <!--
+                  <img src="..." class="mr-3" alt="...">
+                      -->
+                  <div class="media-body">
+                    <h5 class="mt-0">
+                        <%= comment.user.firstname %> <%= comment.user.lastname %>
+                    </h5>
+                    <%=  link_to 'Modifier', '#' %>
+                    <%=  link_to 'Supprimer', house_comment_path(@house.id, comment.id), method: 'delete' %>
+                    <p><%= comment.content %></p>
+                  </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
