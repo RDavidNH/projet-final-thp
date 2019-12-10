@@ -8,7 +8,7 @@ class TestimonialsController < ApplicationController
 
     if current_user.testimonial
   		testimonial = Testimonial.find(current_user.testimonial.id)
-  		testimonial.update(content: params[:content])
+  		testimonial.update(content: params[:content], rating: params[:rating])
   		redirect_to '/'
   	else
 	  	@testimonial = Testimonial.new(content: params[:content], rating: params[:rating])
@@ -24,11 +24,8 @@ class TestimonialsController < ApplicationController
 
   def update
     p params
-    p params[:testimonial][:content]
-    p params[:testimonial][:rating]
     testimonial = Testimonial.find(current_user.testimonial.id)
-    testimonial.update(content: params[:testimonial][:content], rating: params[:testimonial][:rating])
-
+    testimonial.update(content: params[:content], rating: params[:rating])
 
 
     redirect_to users_profil_path

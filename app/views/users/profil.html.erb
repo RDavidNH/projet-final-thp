@@ -1,15 +1,21 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 <% if current_user.testimonial %>
+<!--
 	<%= link_to "Edit", edit_testimonial_path(current_user.testimonial.id) %>
+	-->
+
+	<a id="Edit-testimonial" data-toggle="modal" data-target="#testimonialModal " href="#">Edit</a>
 	<div class="rating">
 	        	<p> Rate Us</p>
 	        	<div>
+	        		<!--
 	        		<ul>
 	        			<% for index in 1..5 do %>
 	        				<li class="stars-ico stars-icon-off" style="float: left" data-stars="<%= index %>" data-testimonial-id="<%=@user.testimonial.id%>" id="starid-<%= index %>"> </li>
 	        			<%end%>
 	        		</ul>
+	        	-->
 	        	</div>
 	        </div>
 	<% else %>
