@@ -1,0 +1,59 @@
+<div class="site-section site-section-sm pb-0">
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12 mb-2">
+            <h1>NOS OFFRES </h1>
+            <hr>
+            <h3>Ventes et locations</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <% @houses.each do |house| %>
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="property-entry h-100">
+                <a href="<%= house_path(house.id) %>" class="property-thumbnail">
+                  <div class="offer-type-wrap">
+                    <span class="offer-type bg-danger">Sale</span>
+                    <span class="offer-type bg-success">Rent</span>
+                  </div>
+                  <img src="<%= image_url('img_1.jpg') %>" alt="Image" class="img-fluid">
+                </a>
+                <div class="p-4 property-body">
+                  <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a>
+                  <h2 class="property-title"><a href="<%= house_path(house.id) %>"><%= house.title %></a></h2>
+                  <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span><%= house.address %></span>
+                  <strong class="property-price text-primary mb-3 d-block text-success"><%= house.price %></strong>
+                  <ul class="property-specs-wrap mb-3 mb-lg-0">.
+                      <% house.features.each do |feat| %>
+                    <li>
+                      <span class="property-specs"><%= feat.name %></span>
+                      <!-- <span class="property-specs-number">2 <sup>+</sup></span> -->
+                    </li>
+                    <% end %>
+                    <!-- <li>
+                      <span class="property-specs">Beds</span>
+                      <span class="property-specs-number">2 <sup>+</sup></span>
+
+                    </li>
+                    <li>
+                      <span class="property-specs">Baths</span>
+                      <span class="property-specs-number">2</span>
+
+                    </li>
+                    <li>
+                      <span class="property-specs">SQ FT</span>
+                      <span class="property-specs-number">7,000</span>
+
+                    </li> -->
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+        <% end %>
+
+    </div>
+</div>
+</div>

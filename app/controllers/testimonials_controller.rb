@@ -23,7 +23,7 @@ class TestimonialsController < ApplicationController
   end
 
   def update
-    p params
+    
     testimonial = Testimonial.find(current_user.testimonial.id)
     testimonial.update(content: params[:content], rating: params[:rating])
 

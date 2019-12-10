@@ -1,0 +1,14 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1><%= @house.title %></h1>
+            <p><%= @house.description %></p>
+            <p><%= @house.status %></p>
+            <p><%= @house.is_available ? 'true' : 'false' %></p>
+
+            <%=  link_to 'Modifier', edit_house_path(@house.id) %>
+            <%=  link_to 'Supprimer', house_path(@house.id), method: 'delete' %>
+        </div>
+    </div>
+</div>

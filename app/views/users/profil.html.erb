@@ -4,8 +4,12 @@
 <!--
 	<%= link_to "Edit", edit_testimonial_path(current_user.testimonial.id) %>
 	-->
-
 	<a id="Edit-testimonial" data-toggle="modal" data-target="#testimonialModal " href="#">Edit</a>
+
+	<br>
+	<br>
+	<%= link_to "Sign out",  destroy_user_session_path, method:"delete"%>
+
 	<div class="rating">
 	        	<p> Rate Us</p>
 	        	<div>

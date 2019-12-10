@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :home
+  resources :houses
   resources :users
   resources :testimonials
   # root :to => "devise/sessions#new"
