@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   end
 
   resources :home
-  resources :houses
+  resources :houses do
+      resources :comments
+      resources :likes, only: [:create, :destroy]
+  end
   resources :users
   resources :testimonials
   # root :to => "devise/sessions#new"

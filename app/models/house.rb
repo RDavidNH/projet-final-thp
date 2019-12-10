@@ -4,6 +4,8 @@ class House < ApplicationRecord
     belongs_to :type
     has_many :feature_houses, dependent: :destroy
     has_many :features, through: :feature_houses
+    has_many :comments, as: :commentable
+    has_many :likes, as: :likeable
 
     validates :title, presence: true, uniqueness: {case_sensitive: false}, length: {minimum: 6}
     validates :description, presence: true, length: {minimum: 128}
