@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :home
   resources :houses do
       resources :comments
+      resources :likes, only: [:create, :destroy]
   end
   resources :users
   resources :testimonials
