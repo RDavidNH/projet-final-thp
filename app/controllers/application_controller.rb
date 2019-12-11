@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
     protected
     def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:account_update, except: [:password], keys: [:firstname, :lastname, :description])
+        devise_parameter_sanitizer.permit(:account_update, except: [:password], keys: [:firstname, :lastname, :phone, :address])
     end
 
 
