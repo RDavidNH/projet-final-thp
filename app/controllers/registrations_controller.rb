@@ -3,7 +3,11 @@ class RegistrationsController < Devise::RegistrationsController
    
     protected  
     def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:account_update, except: [:password], keys: [:firstname, :lastname, :description])
+        # devise_parameter_sanitizer.permit(:account_update, except: [:password], keys: [:firstname, :lastname, :phone, :address])
 
+
+        devise_parameter_sanitizer.for(:account_update) do |u|
+      		u.permit(:firstname, :lastname ,:password,:phone, :address)
+    	end
     end  
 end
