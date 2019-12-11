@@ -16,6 +16,7 @@
 //
 //
 //= require jquery-3.3.1.min
+//= require animsition.min
 //= require jquery-migrate-3.0.1.min
 //= require jquery-ui
 //= require popper.min
@@ -34,5 +35,10 @@
 //= require scrollReveal.min
 //= require main
 //= require rating
-//=
+//= require select2.min
+//= require moment.min
+//= require daterangepicker
+//= require countdowntime
+//= require login
+//= require bootstrap-dropdownhover.min
 //= require_tree .

@@ -1,3 +1,7 @@
+<%= render 'shared/signin_modal' %>
+<%= render 'shared/signup_modal' %>
+
+
 <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -36,8 +40,8 @@
                                 <a href="<%= new_house_path %>">Créer une annonce</a>
                             </li>
                             <li class="has-children">
-                                <a href="properties.html">Je cherche</a>
-                                <!-- <ul class="dropdown arrow-top">
+                                <a href="#">Je cherche</a>
+                                <ul class="dropdown arrow-top">
                                     <li>
                                         <a href="#">À louer</a>
                                     </li>
@@ -61,7 +65,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                </ul> -->
+                                </ul>
                             </li>
                          
                         <% if user_signed_in? %>
@@ -82,11 +86,15 @@
                                   </div>
                              </li>
                         <% else %>
-                              <li class="nav-item">
-                                    <a id="log-in" data-toggle="modal" data-target="#signinModal" class="" href="#">
-                                      <i class="icon-user-o"> Connexion </i>
-                                    </a>
-                              </li>  
+                      <li class="nav-item ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" ><i class="icon-user-o"> Connexion </i> <span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-right" data-animations="fadeInUp" role="menu" style="transform: translate3d(615px, 53px, 0px); min-width: 129px;">
+                        <a id="log-in" data-toggle="modal" data-target="#signinModal" class="dropdown-item" href="#" style="text-align: center;">
+                             Login 
+                        </a>
+                          <li class="divider"></li>
+                          <a id="sign-up" data-toggle="modal" data-target="#signupModal" class="dropdown-item" href="#" style="text-align: center;">Sign up</a>
+                        </ul>
                         <% end %>
                         </ul>
                     </nav>

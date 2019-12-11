@@ -1,6 +1,7 @@
 class HousesController < ApplicationController
-
+    before_action :authenticate_user, only: [:new, :edit, :update, :create, :destroy]
     layout 'simple_layout', only: [:edit, :new]
+
 
     def index
         @houses = House.all
@@ -17,8 +18,7 @@ class HousesController < ApplicationController
     end
 
     def create
-        # puts params
-        # return
+       
 
         @house = House.new(
             title: params[:house][:title],
