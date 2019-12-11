@@ -7,6 +7,5 @@ class User < ApplicationRecord
   belongs_to :city, optional: :true
   has_one :testimonial
   has_many :houses
-  has_many :comments
-  has_many :houses, through: :comments
+  has_many :comments, through: :houses
 end
