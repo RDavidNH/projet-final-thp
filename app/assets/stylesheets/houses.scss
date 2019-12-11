@@ -1,3 +1,43 @@
 // Place all the styles related to the Houses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.site-navbar .dropdown-item i {
+		font-size: 16px;
+		min-width: 22px;
+	}
+.site-navbar .dropdown-item .material-icons {
+        font-size: 21px;
+        line-height: 16px;
+        vertical-align: middle;
+        margin-top: -2px;
+    }
+
+.site-navbar .nav-item.open > a, .site-navbar .nav-item.open > a:hover, .site-navbar .nav-item.open > a:focus {
+		color: #fff;
+		background: none !important;
+	}
+
+.site-navbar .dropdown-menu {
+		border-radius: 1px;
+		border-color: #e5e5e5;
+		box-shadow: 0 2px 8px rgba(0,0,0,.05);
+	}
+	
+.site-navbar .dropdown-menu li a {
+		color: #777 !important;
+		padding: 8px 20px;
+		line-height: normal;
+	}
+
+.site-navbar .dropdown-menu li a:hover, .site-navbar .dropdown-menu li a:focus {
+		color: #333 !important;
+		background: transparent !important;
+	}
+
+.site-navbar img {
+		border-radius: 50%;
+		width: 36px;
+		height: 36px;
+		margin-right: 10px;
+}

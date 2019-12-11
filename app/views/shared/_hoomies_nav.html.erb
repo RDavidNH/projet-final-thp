@@ -10,7 +10,7 @@
     </div>
     <!-- .site-mobile-menu -->
 
-    <div class="site-navbar mt-4" style="border-bottom: 1px solid white;">
+    <div class="site-navbar site-navbar-small shadow-sm" style="border-bottom: 1px solid white;">
         <div class="container py-1">
             <div class="row align-items-center">
                 <div class="col-8 col-md-8 col-lg-4">
@@ -37,7 +37,7 @@
                             </li>
                             <li class="has-children">
                                 <a href="properties.html">Je cherche</a>
-                                <ul class="dropdown arrow-top">
+                                <!-- <ul class="dropdown arrow-top">
                                     <li>
                                         <a href="#">À louer</a>
                                     </li>
@@ -61,14 +61,33 @@
                                             </li>
                                         </ul>
                                     </li>
-                                </ul>
+                                </ul> -->
                             </li>
-                            <li>
-                                <a href="about.html">À propos</a>
-                            </li>
-                            <li>
-                                <a href="contact.html">Contacts</a>
-                            </li>
+                         
+                        <% if user_signed_in? %>
+                             <li class="nav-item dropdown">
+                                
+                                  <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="/assets/person_1.jpg" class="avatar" alt=""> Antonio Moreno <b class="caret"></b></a>
+
+                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+
+
+                                    <%= link_to(users_profil_path, class: "dropdown-item") do %>
+                                        <i class="icon-user-o"> Mon profil </i>
+                                    <%end%>
+
+                                    <%= link_to(destroy_user_session_path, method: :delete, class: "dropdown-item") do %>
+                                        <i class="icon-delete"> Sign out </i>
+                                    <% end %>
+                                  </div>
+                             </li>
+                        <% else %>
+                              <li class="nav-item">
+                                    <a id="log-in" data-toggle="modal" data-target="#signinModal" class="" href="#">
+                                      <i class="icon-user-o"> Connexion </i>
+                                    </a>
+                              </li>  
+                        <% end %>
                         </ul>
                     </nav>
                 </div>

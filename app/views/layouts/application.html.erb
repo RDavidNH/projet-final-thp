@@ -19,19 +19,11 @@
   <body data-spy="scroll" data-target=".navbar">
     <div class="site-loader"></div>
 
-     
-    <%= render 'shared/home_nav' %>
-
-    <%= render 'shared/home_carousel' %>
-
-    <%= render 'shared/search_form' %>
 
      <!-- <p class="notice"><%= notice %></p>
      <p class="alert"><%= alert %></p> -->
     <%= yield %>
     <%= render 'layouts/testimonial_modal'%>
-
-    <%= render 'shared/footer' %>
-
+    <%= render 'shared/footer' %>    
   </body>
 </html>
