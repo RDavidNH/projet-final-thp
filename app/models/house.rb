@@ -7,6 +7,8 @@ class House < ApplicationRecord
     has_many :comments, as: :commentable
     has_many :likes, as: :likeable
 
+    has_many_attached :photos
+
     validates :title, presence: true, uniqueness: {case_sensitive: false}, length: {minimum: 6}
     validates :description, presence: true, length: {minimum: 128}
     validates :room_number, presence: true, numericality: {greater_than: 0}

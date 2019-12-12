@@ -5,17 +5,17 @@
         <%= text_area_tag 'content' %>
   
 
-		              <ul class="rating-ul">
-		                <% for index in 1..5 do %>
-		                  
-		                    <%= label_tag "rating_#{index}" do %>
-		                      <li class="stars-ico stars-icon-off" style="float: left" data-stars="<%= index %>" id="starid-<%= index %>"> 
-		                      </li>
-		                      <%= radio_button_tag :rating, index %>
-		                    <% end %>
-		     
-		                <% end %>
-		              </ul>
+          <ul class="rating-ul">
+            <% for index in 1..5 do %>
+              
+                <%= label_tag "rating_#{index}" do %>
+                  <li class="stars-ico stars-icon-off" style="float: left" data-stars="<%= index %>" id="starid-<%= index %>"> 
+                  </li>
+                  <%= radio_button_tag :rating, index %>
+                <% end %>
+ 
+            <% end %>
+          </ul>
 <br>
 	<%= submit_tag "Save testimonial" %>
 <% end %>

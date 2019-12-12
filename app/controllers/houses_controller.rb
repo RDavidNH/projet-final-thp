@@ -19,7 +19,7 @@ class HousesController < ApplicationController
 
     def create
        
-
+        p params
         @house = House.new(
             title: params[:house][:title],
             description: params[:house][:description],
@@ -32,6 +32,9 @@ class HousesController < ApplicationController
             district: District.find_by(id: params[:house][:district_id]),
             type: Type.find_by(id: params[:house][:type_id])
         )
+        
+
+        @house.photos.attach(params[:photos])
 
         @house.feature_ids=(params[:house][:features]);
 
@@ -48,8 +51,8 @@ class HousesController < ApplicationController
     end
 
     def update
-        # p params
-        # return
+         # p params
+        
         @house = House.find(params[:id])
 
         res = @house.update(
@@ -65,6 +68,11 @@ class HousesController < ApplicationController
             type: Type.find_by(id: params[:house][:type_id_id])
         )
 
+        for picture in params[:photos]
+            @house.photos.attach(picture)
+        end 
+        # @house.photos.attach(params[:photos])
+        
         @house.feature_ids=(params[:house][:features]);
 
         if res
