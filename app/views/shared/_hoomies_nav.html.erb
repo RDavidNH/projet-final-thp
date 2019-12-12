@@ -67,34 +67,31 @@
                                     </li>
                                 </ul>
                             </li>
-                         
+
                         <% if user_signed_in? %>
-                             <li class="nav-item dropdown">
-                                
-                                  <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="/assets/person_1.jpg" class="avatar" alt=""> Antonio Moreno <b class="caret"></b></a>
-
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-
-
-                                    <%= link_to(users_profil_path, class: "dropdown-item") do %>
-                                        <i class="icon-user-o"> Mon profil </i>
-                                    <%end%>
-
-                                    <%= link_to(destroy_user_session_path, method: :delete, class: "dropdown-item") do %>
-                                        <i class="icon-delete"> Sign out </i>
-                                    <% end %>
-                                  </div>
+                             <li class="has-children">
+                                  <a href="#"><img src="/assets/person_1.jpg" class="avatar" alt=""> Antonio Moreno </a>
+                                  <ul class="dropdown arrow-top" role="menu">
+                                      <li>
+                                          <%= link_to(users_profil_path) do %>
+                                              <i class="icon-user-o"></i> Mon profil
+                                          <%end%>
+                                      </li>
+                                      <li>
+                                          <%= link_to(destroy_user_session_path, method: :delete) do %>
+                                              <i class="icon-delete"></i> Se déconnecter
+                                          <% end %>
+                                      </li>
+                                  </ul>
                              </li>
                         <% else %>
-                      <li class="nav-item ">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" ><i class="icon-user-o"> Connexion </i> <span class="caret"></span></a>
-                        <ul class="dropdown-menu dropdown-menu-right" data-animations="fadeInUp" role="menu" style="transform: translate3d(615px, 53px, 0px); min-width: 129px;">
-                        <a id="log-in" data-toggle="modal" data-target="#signinModal" class="dropdown-item" href="#" style="text-align: center;">
-                             Login 
-                        </a>
-                          <li class="divider"></li>
-                          <a id="sign-up" data-toggle="modal" data-target="#signupModal" class="dropdown-item" href="#" style="text-align: center;">Sign up</a>
-                        </ul>
+                            <li class="has-children">
+                                <a href="#" role="button"><i class="icon-user-o mr-1"></i>Connexion</a>
+                                <ul class="dropdown arrow-top" role="menu">
+                                    <li><a href="#" id="log-in" data-toggle="modal" data-target="#signinModal"> Se connecter </a></li>
+                                    <li><a href="#" id="sign-up" data-toggle="modal" data-target="#signupModal">S'inscrire</a></li>
+                                </ul>
+                            </li>
                         <% end %>
                         </ul>
                     </nav>
