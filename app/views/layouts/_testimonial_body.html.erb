@@ -13,7 +13,7 @@
 				<div class="item carousel-item">
 					<div class="img-box"><img src="/assets/person_<%=index + 1%>.jpg" alt=""></div>
 					<p class="testimonial"> <%= testimonial.content %></p>
-					<p class="overview"><b>Michael Holz</b>Seo Analyst at <a href="#">OsCorp Tech.</a></p>
+					<p class="overview"><b><%= testimonial.user.firstname %> <%= testimonial.user.lastname %></b>Seo Analyst at <a href="#">OsCorp Tech.</a></p>
 					<div class="star-rating">
 						<ul>
                             <% if testimonial.rating <= 5%>
