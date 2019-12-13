@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	console.log("ok");
 	$('.stars-ico').click(function(){
 		var star = $(this);
 		var stars = $(this).attr('data-stars');
