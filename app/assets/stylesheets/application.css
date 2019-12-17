@@ -33,8 +33,9 @@
  *= require app_style
  *
  *
- *= require fonts/font-awesome-4.7.0/css/font-awesome.min
- *= require fonts/iconic/css/material-design-iconic-font.min
+ * require fonts/font-awesome-4.7.0/css/font-awesome.min
+ * require fonts/iconic/css/material-design-iconic-font.min
+ *= require iconic/css/material-design-iconic-font
  *= require hamburgers.min
  *= require animsition.min
  *= require select2.min
