@@ -20,9 +20,15 @@
                      <% else %>
                          <span class="offer-type bg-success">À vendre</span>
                      <% end %>
+                    
                   </div>
                   <img src="<%= image_url('img_1.jpg') %>" alt="Image" class="img-fluid">
                 </a>
+                <% if house.user == current_user %>
+                    <%= link_to(content_tag(:span, 'Modifier', :class => 'offer-type bg-primary'), edit_house_path(house.id), :class => 'property-thumbnail',:style => 'position:absolute; margin-top:-34px; margin-left:10px;')%>
+                <% end %>
+
+
                 <div class="p-4 property-body">
                   <a href="<%= house_likes_path(house.id) %>" id="like_<%= house.id %>" class="property-favorite <%= house.likes.find_by(user: 1) ? 'active' : '' %>" data-method="post" data-remote="true"><span class="icon-heart-o"></span></a>
                   <h2 class="property-title"><a href="<%= house_path(house.id) %>"><%= house.title %></a></h2>
