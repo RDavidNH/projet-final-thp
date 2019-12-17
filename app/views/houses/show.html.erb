@@ -5,8 +5,10 @@
             <h1>
                 <%= @house.title %>
             </h1>
-            <%=  link_to 'Modifier', edit_house_path(@house.id) %>
-            <%=  link_to 'Supprimer', house_path(@house.id), method: 'delete' %>
+            <% if ( @house.user ==  current_user )%>
+                <%=  link_to 'Modifier', edit_house_path(@house.id) %>
+                <%=  link_to 'Supprimer', house_path(@house.id), method: 'delete' %>
+            <%end%>
             <p><%= @house.description %></p>
             <p><%= @house.status %></p>
 
