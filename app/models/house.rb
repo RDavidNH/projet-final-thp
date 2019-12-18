@@ -1,4 +1,8 @@
 class House < ApplicationRecord
+
+    include PgSearch::Model
+    pg_search_scope :search_title, :against => [:title]
+
     belongs_to :user
     belongs_to :district
     belongs_to :type

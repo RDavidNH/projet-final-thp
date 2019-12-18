@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 	 #  # end
   # end
 
+  get '/search', to: 'adv_search#search_house'
+
   resources :home
   resources :houses do
       resources :comments
