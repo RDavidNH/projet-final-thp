@@ -2,6 +2,9 @@ class House < ApplicationRecord
 
     include PgSearch::Model
     pg_search_scope :search_title, :against => [:title]
+    pg_search_scope :search_price, :against => [:price]
+    pg_search_scope :search_address, against: :address, using: { tsearch: {any_word: true} }
+    # multisearchable against: [:title]
 
     belongs_to :user
     belongs_to :district

@@ -5,8 +5,11 @@ class AdvSearchController < ApplicationController
 
         
         puts "*"*33
-        p House.search_title("House 1").include(:author).where("created_at > ?", 1.year.ago).limit(10)
+        p h = House.search_title("House").search_price("140000").search_address("Donnell").all
+        # p PgSearch.multisearch("House 140000")
+        # p h.first.user
         # p House.all
+        # p PgSearch.multisearch("House 1").limit(10)
         puts "*"*33
     end
 end
