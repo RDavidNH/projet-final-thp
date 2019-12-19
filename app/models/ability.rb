@@ -7,10 +7,6 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
        user ||= User.new # guest user (not logged in)
-       puts "="*30
-       p user
-       p "*"*30
-       p user.houses
     #   if user.admin?
     #     can :manage, :all
     #   else
@@ -35,16 +31,34 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
     
-   
-        can :read,House, user_id: user.id  #:all #House, user_id: user.id                 # allow everyone to read everything
-        can :manage, House, user_id: user.id #:all #House, user_id: user.id
-        can :read, District
-        can :read, User, id: user.id
-        can :read, Type
-        can :read, Feature
-        return unless user
-        can :access, :rails_admin       # only allow admin users to access Rails Admin
-        can :read, :dashboard           # allow access to dashboard
+        if user.role == 'admin'
+            can :read, :all
+            can :manage, :all
+            return unless user
+            can :access, :rails_admin       # only allow admin users to access Rails Admin
+            can :read, :dashboard           # allow access to dashboard
+        elsif user.role == 'owner'
+            can :read,House, user_id: user.id  #:all #House, user_id: user.id                 # allow everyone to read everything
+            can :manage, House, user_id: user.id #:all #House, user_id: user.id
+            can :read, District
+            # can :read, User, id: user.id
+            can :read, Type
+            can :read, Feature
+            return unless user
+            can :access, :rails_admin       # only allow admin users to access Rails Admin
+            can :read, :dashboard           # allow access to dashboard
+        elsif user.role == 'customer'
+
+        end
+        # can :read,House, user_id: user.id  #:all #House, user_id: user.id                 # allow everyone to read everything
+        # can :manage, House, user_id: user.id #:all #House, user_id: user.id
+        # can :read, District
+        # can :read, User, id: user.id
+        # can :read, Type
+        # can :read, Feature
+        # return unless user
+        # can :access, :rails_admin       # only allow admin users to access Rails Admin
+        # can :read, :dashboard           # allow access to dashboard
         # if user.role? :superadmin
         #   can :manage, :all             # allow superadmins to do anything
         # elsif user.role? :manager
