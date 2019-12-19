@@ -23,6 +23,10 @@ features = ['wc', 'douche', 'garage']
         zip_code: Faker::Address.zip
     )
 end
+city_admin = City.create(
+        name: 'Antananarivo',
+        zip_code: 101
+    )
 
 20.times do
     districts << District.create(
@@ -32,6 +36,16 @@ end
     )
 end
 
+admin = User.create(
+        email: 'hoomiesadmin@yopmail.com',
+        password: 'hoomiesadmin',
+        firstname: 'Admin',
+        lastname: 'Hoomies',
+        role: 'admin',
+        phone: '+261 34 11 111 11',
+        address: 'Ivandry, Bâtiment Bloc 3, 5ème étage',
+        city: city_admin
+    )
 
 10.times do |i|
     users << User.create(
