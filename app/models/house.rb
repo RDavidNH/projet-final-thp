@@ -39,6 +39,12 @@ class House < ApplicationRecord
             end
         end
 
+        configure :user do
+            visible do
+                bindings[:controller].current_ability.can? :edit, User
+            end
+        end
+
 
     end
 
