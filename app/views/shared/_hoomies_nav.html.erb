@@ -17,14 +17,14 @@
     <div class="site-navbar site-navbar-small shadow-sm" style="border-bottom: 1px solid white;">
         <div class="container py-1">
             <div class="row align-items-center">
-                <div class="col-8 col-md-8 col-lg-4">
+                <div class="col-8 col-md-8 col-lg-2">
                     <h1 class="mb-0">
                         <a href="/" class="text-white h2 mb-0">
                             <strong>Hoomies<span class="text-danger">.</span></strong>
                         </a>
                     </h1>
                 </div>
-                <div class="col-4 col-md-4 col-lg-8">
+                <div class="col-4 col-md-4 col-lg-10">
                     <nav class="site-navigation text-right text-md-right" role="navigation">
 
                         <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3">
@@ -51,22 +51,6 @@
                                     <li>
                                         <a href="#">Commercial Building</a>
                                     </li>
-                                    <!-- 
-                                    <li class="has-children">
-                                        <a href="#">Sub Menu</a>
-                                        <ul class="dropdown">
-                                            <li>
-                                                <a href="#">Menu One</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Menu Two</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Menu Three</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    -->
                                 </ul>
                             </li>
 
@@ -105,6 +89,11 @@
                                        </li>
                                   </ul>
                              </li>
+                             <% if current_user.role == 'admin' || current_user.role == 'owner' %>
+                                <li> 
+                                    <%= link_to("Dashboard", rails_admin_path)%>
+                                </li>
+                             <% end %>
                         <% else %>
                             <li class="has-children">
                                 <a href="#" role="button"><i class="icon-user-o mr-1"></i>Connexion</a>
@@ -114,6 +103,9 @@
                                 </ul>
                             </li>
                         <% end %>
+
+
+
                         </ul>
                     </nav>
                 </div>
