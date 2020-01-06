@@ -10,6 +10,13 @@ class HousesController < ApplicationController
 
     def show
         @house = House.find(params[:id])
+
+        puts "*"*33 
+        for h in @house.photos 
+            p url_for h
+        end
+        puts "*"*33
+
         render layout: 'secondary_layout'
     end
 
@@ -34,7 +41,7 @@ class HousesController < ApplicationController
         )
 
 
-        @house.photos.attach(params[:photos])
+        # @house.photos.attach(params[:photos])
 
         @house.feature_ids=(params[:house][:features]);
 
