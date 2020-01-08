@@ -91,24 +91,36 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+
+                    <% if not @house.photos.attached? %>
+                        <div class="form-row">
                             <div class="col">
-                              <h3> Uploader les photos</h3>
-                              <div class="form-control-file border" style="margin-top: 10px; margin-bottom: 10px;">
+                                <h3> Uploader les photos</h3>
+                                <div class="form-control-file border" style="margin-top: 10px; margin-bottom: 10px;">
                                 <%= label_tag 'photos'  do %>
-                                  <%= file_field_tag 'photos[]' %>
-                                  <%= file_field_tag 'photos[]' %>
-                                  <%= file_field_tag 'photos[]' %>
+                                    <%= file_field_tag 'photos[]' %>
+                                    <%= file_field_tag 'photos[]' %>
+                                    <%= file_field_tag 'photos[]' %>
                                 <% end %>
-                              </div>
+                                </div>
 
                             </div>            
-                    </div>
+                        </div>
+                    <% end %>
+
                 </div>
             </div>
 
-            
-          
+<hr>
+            <% if @house.photos.attached? %>
+                <% for photo in @house.photos %>
+                    <input type="checkbox" name="delete_photos[]" value="<%= photo.id %>">
+                    <%= image_tag(photo) %>
+                    <input type="file" name="">
+                    <br>
+                <% end %>
+            <% end %>
+<hr>
 
             <%= submit_tag 'Enregister les modifications', class: 'btn btn-primary'%>
             <% end %>

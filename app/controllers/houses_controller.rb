@@ -58,10 +58,19 @@ class HousesController < ApplicationController
     end
 
     def update
-         # p params
-
+        # puts "*"*33
+        # p params
+        # puts "*"*33
+        
+        # return
+        
         @house = House.find(params[:id])
-
+        
+        # puts "*"*33
+        # p @house.photos.find([5, 6])
+        # puts "*"*33
+        @house.photos.find([5, 6]).purge
+return 
         res = @house.update(
             title: params[:house][:title],
             description: params[:house][:description],
