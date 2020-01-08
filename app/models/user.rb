@@ -8,6 +8,7 @@ class User < ApplicationRecord
   # devise :omniauthable, omniauth_providers: %i[facebook]
   has_one_attached :avatar
   belongs_to :city, optional: :true
+  has_many :user_provider, dependent: :destroy
   has_one :testimonial, dependent: :destroy
   has_many :houses, dependent: :destroy
   has_many :comments, through: :houses, dependent: :destroy
