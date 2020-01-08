@@ -28,13 +28,13 @@ class HousesController < ApplicationController
             price: params[:house][:price],
             status: params[:house][:status],
             is_available: true,
-            user: User.find(1),
+            user: current_user,
             district: District.find_by(id: params[:house][:district_id]),
             type: Type.find_by(id: params[:house][:type_id])
         )
 
 
-        @house.photos.attach(params[:photos])
+        # @house.photos.attach(params[:photos])
 
         @house.feature_ids=(params[:house][:features]);
 
@@ -63,7 +63,7 @@ class HousesController < ApplicationController
             price: params[:house][:price],
             status: params[:house][:status],
             is_available: params[:house][:is_available],
-            user: User.find(1),
+            user: current_user,
             district: District.find_by(id: params[:house][:district_id]),
             type: Type.find_by(id: params[:house][:type_id])
         )

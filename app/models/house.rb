@@ -3,11 +3,11 @@ class House < ApplicationRecord
     belongs_to :district
     belongs_to :type
     has_many :feature_houses, dependent: :destroy
-    has_many :features, through: :feature_houses
-    has_many :comments, as: :commentable
-    has_many :likes, as: :likeable
+    has_many :features, through: :feature_houses, dependent: :destroy
+    has_many :comments, as: :commentable, dependent: :destroy
+    has_many :likes, as: :likeable, dependent: :destroy
 
-    has_many_attached :photos
+    has_many_attached :photos, dependent: :destroy
     
 
     validates :title, presence: true, uniqueness: {case_sensitive: false}, length: {minimum: 6}
