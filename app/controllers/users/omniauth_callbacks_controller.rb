@@ -3,7 +3,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if request.env["omniauth.auth"].info.email.nil?
       puts "a"* 200
-      redirect_to "/users/sign_in"
+      redirect_to "/users/sign_up", :flash => { :danger => 'Veuillez vous inscrire'}
     else
       puts "b" * 100
       @user = UserProvider.find_for_facebook_oauth(request.env["omniauth.auth"])
