@@ -92,15 +92,15 @@
                         </div>
                     </div>
 
-                    <% if not @house.photos.attached? %>
+                    <% if @house.photos.length < 3 %>
                         <div class="form-row">
                             <div class="col">
                                 <h3> Uploader les photos</h3>
                                 <div class="form-control-file border" style="margin-top: 10px; margin-bottom: 10px;">
-                                <%= label_tag 'photos'  do %>
-                                    <%= file_field_tag 'photos[]' %>
-                                    <%= file_field_tag 'photos[]' %>
-                                    <%= file_field_tag 'photos[]' %>
+                                <%= label_tag 'photos' do %>
+                                    <% (3 - @house.photos.length).times do %>
+                                        <%= file_field_tag 'photos[]' %>
+                                    <% end %>
                                 <% end %>
                                 </div>
 
@@ -116,8 +116,11 @@
                 <% for photo in @house.photos %>
                     <input type="checkbox" name="delete_photos[]" value="<%= photo.id %>">
                     <%= image_tag(photo) %>
-                    <input type="file" name="">
-                    <br>
+                    <input type="file" name="edit_photos[<%= photo.id %>][]">
+                    <!-- 
+                    <input type="hidden" name="edit_photos[<%= photo.id %>][remove][]" value="<%= photo.id %>">
+                    -->
+                    <br>  
                 <% end %>
             <% end %>
 <hr>
