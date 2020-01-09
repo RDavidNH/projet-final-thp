@@ -23,7 +23,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
   
   def failure
-    redirect_to "/users/sign_in"
+    puts "$" * 50
+    puts "Failllure"
+    redirect_to new_user_session_path
   end
 
 end
