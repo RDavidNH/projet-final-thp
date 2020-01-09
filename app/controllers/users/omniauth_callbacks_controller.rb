@@ -1,13 +1,14 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
-    puts "#" * 40
-    puts request.env["omniauth.auth"]
-    puts request.env["omniauth.auth"].info.email.nil?
-    puts "-" * 100
+    # puts "#" * 40
+    # puts request.env["omniauth.auth"]
+    # puts request.env["omniauth.auth"].info.email.nil?
+    # puts "-" * 100
    
-    puts "*" * 40
+    # puts "*" * 40
     if request.env["omniauth.auth"].info.email.nil?
       puts "a"* 200
+      redirect_to '/'
     else
       puts "b" * 100
       @user = UserProvider.find_for_facebook_oauth(request.env["omniauth.auth"])

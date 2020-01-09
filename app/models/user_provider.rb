@@ -7,8 +7,6 @@ class UserProvider < ApplicationRecord
             user.user
         else
             registered_user = User.where(:email => auth.info.email).first
-            puts "c" * 200
-            puts registered_user
             unless registered_user.nil?
                         UserProvider.create!(
                               provider: auth.provider,
