@@ -2,11 +2,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     puts "#" * 40
     puts request.env["omniauth.auth"]
-    puts request.env["omniauth.auth"].info.email
+    puts request.env["omniauth.auth"].info.email.nil?
     puts "-" * 100
    
     puts "*" * 40
-    if defined?(request.env["omniauth.auth"].info.email)
+    if request.env["omniauth.auth"].info.email.nil?
       puts "a"* 200
     else
       puts "b" * 100
