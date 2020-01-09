@@ -263,7 +263,7 @@ Devise.setup do |config|
   # config.omniauth :facebook, "2487629574784790", "b29b603b82cc2a41da0630ce2ed40c2a", callback_url: "http://localhost:3000/users/auth/facebook/callback"
   
   # config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: 'email', info_fields: 'email', callback_url: 'https://hoomies.herokuapp.com/users/auth/facebook/callback'
-  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], callback_url: 'https://hoomies.herokuapp.com/users/auth/facebook/callback'
+  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: 'email', info_fields: 'email', callback_url: 'https://hoomies.herokuapp.com/users/auth/facebook/callback'
 
   config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET']
   # ==> Warden configuration
