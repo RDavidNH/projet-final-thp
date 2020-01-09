@@ -6,9 +6,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     puts "-" * 100
    
     puts "*" * 40
-    if request.env["omniauth.auth"].info.email
+    if defined?(request.env["omniauth.auth"].info.email)
       puts "a"* 200
     else
+      puts "b" * 100
       @user = UserProvider.find_for_facebook_oauth(request.env["omniauth.auth"])
       if @user.persisted?
         sign_in_and_redirect @user, :event => :authentication               
