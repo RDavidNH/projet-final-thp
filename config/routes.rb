@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/hoomiesadmin', as: 'rails_admin'
  
   get 'users/profil', 'users#profil'
+  get 'users/contact', 'users#contact'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   devise_scope :user do
