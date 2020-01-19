@@ -1,7 +1,7 @@
 class HousesController < ApplicationController
     before_action :authenticate_user, only: [:new, :edit, :update, :create, :destroy]
+    before_action :can_post?, only: [:new, :create]
     layout 'simple_layout', only: [:edit, :new]
-
 
     def index
         @houses = House.all
@@ -18,8 +18,7 @@ class HousesController < ApplicationController
     end
 
     def create
-
-        p params
+        p current_user
         @house = House.new(
             title: params[:house][:title],
             description: params[:house][:description],
@@ -39,6 +38,7 @@ class HousesController < ApplicationController
         @house.feature_ids=(params[:house][:features]);
 
         if @house.save
+            post_control
             redirect_to house_path(@house.id), flash: {:success => 'Élément créé avec succès'}
         else
             render :new, layout: 'simple_layout'
@@ -88,6 +88,22 @@ class HousesController < ApplicationController
 
         if house.destroy
             redirect_to houses_path, flash: {:success => 'Élément supprimé avec succès'}
+        end
+    end
+
+    def post_control
+        current_user.post_count += 1
+        current_user.save
+        if current_user.post_count == 3
+            current_user.can_post = false
+            current_user.save
+        end
+    end
+
+
+    def can_post?
+        if current_user.post_count > 3
+            redirect_to '/'
         end
     end
 end
