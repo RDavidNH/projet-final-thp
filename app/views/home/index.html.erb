@@ -6,7 +6,7 @@
 
   <div class="site-section site-section-sm bg-light">
     <div class="container">
-
+<!--
       <div class="row mb-5">
         <div class="col-md-6 col-lg-4 mb-4">
           <div class="property-entry h-100">
@@ -221,7 +221,83 @@
             </div>
           </div>
         </div>
+-->
 
+        <div class="site-section site-section-sm pb-0">
+        <div class="container">
+        
+            <div class="row">
+                <div class="col-sm-12 mb-2">
+                    <h1>NOS OFFRES </h1>
+                    <hr>
+                    <h3>Ventes et locations</h3>
+                </div>
+            </div>
+        
+            <div class="row">
+                <% House.all.each_with_index do |house, index| %>
+                  <% if index < 6 %>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                      <div class="property-entry h-100">
+                        <a href="<%= house_path(house.id) %>" class="property-thumbnail">
+                          <div class="offer-type-wrap">
+                             <% if house.status == 'rent' %>
+                                 <span class="offer-type bg-danger">À louer</span>
+                             <% else %>
+                                 <span class="offer-type bg-success">À vendre</span>
+                             <% end %>
+                            
+                          </div>
+                          <img src="<%= image_url('img_1.jpg') %>" alt="Image" class="img-fluid">
+                        </a>
+                        <% if house.user == current_user %>
+                            <%= link_to(content_tag(:span, 'Modifier', :class => 'offer-type bg-primary'), edit_house_path(house.id), :class => 'property-thumbnail',:style => 'position:absolute; margin-top:-34px; margin-left:10px;')%>
+                        <% end %>
+        
+        
+                        <div class="p-4 property-body">
+                          <a href="<%= house_likes_path(house.id) %>" id="like_<%= house.id %>" class="property-favorite <%= house.likes.find_by(user: 1) ? 'active' : '' %>" data-method="post" data-remote="true"><span class="icon-heart-o"></span></a>
+                          <h2 class="property-title"><a href="<%= house_path(house.id) %>"><%= house.title %></a></h2>
+                          <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span><%= house.address %></span>
+                          <strong class="property-price text-primary mb-3 d-block text-success"><%= number_to_currency(house.price, unit: 'Ar ', precision: 0, delimiter: '.') %></strong>
+                          <ul class="property-specs-wrap mb-3 mb-lg-0">.
+                              <% house.features.each do |feat| %>
+                            <li>
+                              <span class="property-specs"><%= feat.name %></span>
+                              <!-- <span class="property-specs-number">2 <sup>+</sup></span> -->
+                            </li>
+                            <% end %>
+                            <!-- <li>
+                              <span class="property-specs">Beds</span>
+                              <span class="property-specs-number">2 <sup>+</sup></span>
+        
+                            </li>
+                            <li>
+                              <span class="property-specs">Baths</span>
+                              <span class="property-specs-number">2</span>
+        
+                            </li>
+                            <li>
+                              <span class="property-specs">SQ FT</span>
+                              <span class="property-specs-number">7,000</span>
+        
+                            </li> -->
+                          </ul>
+        
+                        </div>
+                      </div>
+                    </div>
+                  <%end%>
+                <% end %>
+            </div>
+
+            <div class="row" style="display: flex; justify-content: right">
+                <p > <%= link_to  "Voir plus", houses_path  %> </p>
+            </div>
+        </div>
+        </div>
+        
+<!--
         <div class="col-md-6 col-lg-4 mb-4">
           <div class="property-entry h-100">
             <a href="property-details.html" class="property-thumbnail">
@@ -328,9 +404,12 @@
             </div>
           </div>
         </div>
+-->
       </div>
+
       <div class="row">
         <div class="col-md-12 text-center">
+<!--
           <div class="site-pagination">
             <a href="#" class="active">1</a>
             <a href="#">2</a>
@@ -340,12 +419,13 @@
             <span>...</span>
             <a href="#">10</a>
           </div>
+-->
         </div>
       </div>
 
     </div>
   </div>
-
+<!--
   <div class="site-section">
     <div class="container">
       <div class="row justify-content-center">
@@ -385,7 +465,32 @@
       </div>
     </div>
   </div>
-<!--
+  -->
+
+  
+  <!--
+  
+      ***********************************************************************************************
+      ***********************************************************************************************
+                                              Testimonial section Begining
+      ***********************************************************************************************
+      ***********************************************************************************************
+  -->
+  
+    <div class="testimonial-section">
+        <%= render 'layouts/testimonial_body' %>
+    </div>
+  
+  <!--
+  
+      ***********************************************************************************************
+      ***********************************************************************************************
+                                             End of Testimonial section
+      ***********************************************************************************************
+      ***********************************************************************************************
+  -->
+
+
   <div class="site-section bg-light">
     <div class="container">
       <div class="row justify-content-center mb-5">
@@ -426,32 +531,9 @@
 
     </div>
   </div>
-   -->
-
+   
 <!--
-
-    ***********************************************************************************************
-    ***********************************************************************************************
-                                            Testimonial section Begining
-    ***********************************************************************************************
-    ***********************************************************************************************
--->
-
-  <div class="testimonial-section">
-      <%= render 'layouts/testimonial_body' %>
-  </div>
-
-<!--
-
-    ***********************************************************************************************
-    ***********************************************************************************************
-                                           End of Testimonial section
-    ***********************************************************************************************
-    ***********************************************************************************************
--->
-<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-<%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
-  <div class="site-section">
+<div class="site-section">
   <div class="container">
     <div class="row mb-5 justify-content-center">
       <div class="col-md-7">
@@ -532,5 +614,5 @@
   </div>
 
 </div>
-
+-->
 
