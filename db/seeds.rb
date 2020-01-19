@@ -54,6 +54,8 @@ admin = User.create(
         firstname: Faker::Name.first_name,
         lastname: Faker::Name.last_name,
         role: "user",
+        can_post: true,
+        post_count: 0,
         phone: Faker::PhoneNumber.cell_phone_with_country_code,
         address: Faker::Address.full_address,
         city: cities[rand(0..cities.size)]
