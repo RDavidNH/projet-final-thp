@@ -3,4 +3,9 @@ class UsersController < ApplicationController
   def profil
   	@user = current_user
   end
+
+  def contact
+    @user = User.find_by(role: 'admin')
+  end
+  
 end
