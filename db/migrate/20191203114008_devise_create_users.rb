@@ -5,11 +5,13 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
 
       # custom fields
-      t.string :firstname
-      t.string :lastname
-      t.string :role 
-      t.string :phone
-      t.string :address
+      t.string  :firstname
+      t.string  :lastname
+      t.string  :role 
+      t.string  :phone
+      t.string  :address
+      t.boolean :can_post, default: true
+      t.integer :post_count, default: 0
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
