@@ -99,18 +99,17 @@ class HousesController < ApplicationController
     end
 
     def post_control
-        current_user.post_count += 1
-        current_user.save
-        if current_user.post_count == 3
-            current_user.can_post = false
+        if current_user.post_count <= 1
+            current_user.post_count += 1
+            current_user.can_post = false    
             current_user.save
         end
     end
 
 
     def can_post?
-        if current_user.can_post? == false
-            redirect_to '/'
+        if current_user.can_post == false
+            redirect_to charges_new_path
         end
     end
 end
