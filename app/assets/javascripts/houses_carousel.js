@@ -1,8 +1,8 @@
 $(function(){
 
     function imageGallery() {
-        const highlight = document.querySelector(".gallery-hightlight");
-        const previews = document.querySelectorAll(".room-preview img");
+        var highlight = document.querySelector(".gallery-hightlight");
+        var previews = document.querySelectorAll(".room-preview img");
         
         previews.forEach(preview => {
             preview.addEventListener("click", function() {
@@ -16,4 +16,4 @@ $(function(){
     }
     
     imageGallery();
-})
+});
