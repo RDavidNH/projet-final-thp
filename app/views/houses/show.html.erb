@@ -6,7 +6,7 @@
             <hr>
             <div id="houses-carousel">
                 <div class="room-gallery">
-                    <img class="gallery-hightlight" src="<%= image_url('houses/room1-big.jpeg') %>" alt="room1" />
+                    <%= image_tag('houses/room1-big.jpeg', class: 'gallery-hightlight') %>
                     <div class="room-preview">
                         <!-- <img src="<%= image_url('houses/room1-big.jpeg') %>" class="room-active" alt="" />
                         <img src="<%= image_url('houses/room2-big.jpeg') %>" alt="" />
@@ -15,14 +15,14 @@
                         <div id="houses-single-carousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="<%= image_url('houses/room1-big.jpeg') %>" class="room-active" alt="" />
-                                <img src="<%= image_url('houses/room2-big.jpeg') %>" alt="" />
-                                <img src="<%= image_url('houses/room3-big.jpeg') %>" alt="" />
+                                <%= image_tag('houses/room1-big.jpeg') %>
+                                <%= image_tag('houses/room2-big.jpeg') %>
+                                <%= image_tag('houses/room3-big.jpeg') %>
                             </div>
                             <div class="carousel-item">
-                                <img src="<%= image_url('houses/room1-big.jpeg') %>" alt="" />
-                                <img src="<%= image_url('houses/room2-big.jpeg') %>" alt="" />
-                                <img src="<%= image_url('houses/room3-big.jpeg') %>" alt="" />
+                                <%= image_tag('houses/room1-big.jpeg') %>
+                                <%= image_tag('houses/room2-big.jpeg') %>
+                                <%= image_tag('houses/room3-big.jpeg') %>
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#houses-single-carousel" role="button" data-slide="prev">
