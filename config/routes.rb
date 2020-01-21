@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'offerservice/index'
   get 'charges/new'
   get 'charges/create'
   mount RailsAdmin::Engine => '/hoomiesadmin', as: 'rails_admin'
@@ -18,5 +19,6 @@ Rails.application.routes.draw do
   resources :users
   resources :testimonials, only: [:create, :edit, :update]
   resources :charges, only: [:new, :create]
+  resources :offerservice, only: [:index]
   root :to => "home#index"
 end
