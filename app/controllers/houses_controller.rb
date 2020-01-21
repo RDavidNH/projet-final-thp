@@ -102,7 +102,7 @@ class HousesController < ApplicationController
 
 
     def can_post?
-        if current_user.post_count > 3
+        if current_user.can_post? == false
             redirect_to '/'
         end
     end
