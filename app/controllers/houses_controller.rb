@@ -109,7 +109,7 @@ class HousesController < ApplicationController
 
     def can_post?
         if current_user.can_post == false
-            redirect_to charges_new_path
+            redirect_to offerservice_index_path
         end
     end
 end
