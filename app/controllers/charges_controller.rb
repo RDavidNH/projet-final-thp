@@ -20,12 +20,7 @@ class ChargesController < ApplicationController
         currency: 'eur'
       )
 
-    p "QS" * 40
-    p current_user
-    p "AZ" * 40
     current_user.change_post_user_status
-    p current_user
-    p "ZE" * 40
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_charge_path
