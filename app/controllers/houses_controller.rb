@@ -1,6 +1,8 @@
 class HousesController < ApplicationController
     before_action :authenticate_user, only: [:new, :edit, :update, :create, :destroy]
     before_action :can_post?, only: [:new, :create]
+    
+
     layout 'simple_layout', only: [:edit, :new]
 
     def index
@@ -99,13 +101,15 @@ class HousesController < ApplicationController
     end
 
     def post_control
-        if current_user.post_count <= 1
-            current_user.post_count += 1
-            current_user.can_post = false    
+        if current_user.post_count != 0
+            current_user.post_count -= 1
             current_user.save
+            if current_user.post_count == 0
+                current_user.can_post = false
+                current_user.save
+            end
         end
     end
-
 
     def can_post?
         if current_user.can_post == false
