@@ -10,6 +10,13 @@ class HousesController < ApplicationController
 
     def show
         @house = House.find(params[:id])
+
+        puts "*"*33 
+        for h in @house.photos 
+            p url_for h
+        end
+        puts "*"*33
+
         render layout: 'secondary_layout'
     end
 
@@ -92,18 +99,17 @@ class HousesController < ApplicationController
     end
 
     def post_control
-        current_user.post_count += 1
-        current_user.save
-        if current_user.post_count == 3
-            current_user.can_post = false
+        if current_user.post_count <= 1
+            current_user.post_count += 1
+            current_user.can_post = false    
             current_user.save
         end
     end
 
 
     def can_post?
-        if current_user.can_post? == false
-            redirect_to '/'
+        if current_user.can_post == false
+            redirect_to offerservice_index_path
         end
     end
 end
