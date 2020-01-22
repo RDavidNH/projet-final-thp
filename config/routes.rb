@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'charges/new'
   get 'charges/create'
   mount RailsAdmin::Engine => '/hoomiesadmin', as: 'rails_admin'
+  
  
   get 'users/profil', 'users#profil'
   get 'users/contact', 'users#contact'
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/omniauth/failure' => 'users/omniauth_callbacks#failure'
   end
-  resources :home
+  resources :home, only: [:index]
   resources :houses do
       resources :comments
       resources :likes, only: [:create, :destroy]
