@@ -1,4 +1,5 @@
 class ChargesController < ApplicationController
+ 
   before_action :authenticate_user, only: [:create]
   def new
     if amount_isvalid?(params[:amount])
@@ -26,8 +27,14 @@ class ChargesController < ApplicationController
           description: 'Rails Stripe customer',
           currency: 'eur'
         )
-
-      current_user.change_post_user_status
+        if params[:offerstype] == 'Gold' && params[:amount] = 100
+          current_user.isGold
+        elsif params[:offerstype] == 'Ruby' && params[:amount] = 300
+          current_user.isRuby
+        elsif params[:offerstype] == 'Diamond' && params[:amount] = 500
+          current_user.isDiamond
+        end
+      # current_user.change_post_user_status
       rescue Stripe::CardError => e
         flash[:error] = e.message
         redirect_to new_charge_path
