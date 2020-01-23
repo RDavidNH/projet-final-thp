@@ -1,11 +1,10 @@
 <div class="site-section site-section-sm pb-0">
 <div class="container">
-
     <div class="row">
         <div class="col-sm-12 mb-2">
-            <h1>NOS OFFRES </h1>
+            <h2><%= @title %></h2>
+            <h3><%= @houses.length %> offres disponibles </h3>
             <hr>
-            <h3>Ventes et locations</h3>
         </div>
     </div>
 
@@ -20,7 +19,7 @@
                      <% else %>
                          <span class="offer-type bg-success">À vendre</span>
                      <% end %>
-                    
+
                   </div>
                   <img src="<%= image_url('img_1.jpg') %>" alt="Image" class="img-fluid">
                 </a>

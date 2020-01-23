@@ -4,15 +4,26 @@ class HousesController < ApplicationController
     layout 'simple_layout', only: [:edit, :new]
 
     def index
-        @houses = House.all
+        @title = 'Ventes et locations'
+        
+        if params[:status].to_i == 1
+            status = 'rent'
+            @title = 'Locations'
+        elsif params[:status].to_i == 2
+            status = 'sell'
+            @title = 'Ventes'
+        end
+
+        @houses = status ? House.where(:status => status) : House.all
+
         render layout: 'secondary_layout'
     end
 
     def show
         @house = House.find(params[:id])
 
-        puts "*"*33 
-        for h in @house.photos 
+        puts "*"*33
+        for h in @house.photos
             p url_for h
         end
         puts "*"*33
