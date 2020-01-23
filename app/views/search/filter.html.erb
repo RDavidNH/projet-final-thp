@@ -1,0 +1,67 @@
+<div class="site-section site-section-sm pb-0">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 mb-2">
+            <h2>Résultat(s) de la recherche</h2>
+            <h3><%= @houses.length %> offres disponibles </h3>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <% @houses.each do |house| %>
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="property-entry h-100">
+                <a href="<%= house_path(house.id) %>" class="property-thumbnail">
+                  <div class="offer-type-wrap">
+                     <% if house.status == 'rent' %>
+                         <span class="offer-type bg-danger">À louer</span>
+                     <% else %>
+                         <span class="offer-type bg-success">À vendre</span>
+                     <% end %>
+
+                  </div>
+                  <img src="<%= image_url('img_1.jpg') %>" alt="Image" class="img-fluid">
+                </a>
+                <% if house.user == current_user %>
+                    <%= link_to(content_tag(:span, 'Modifier', :class => 'offer-type bg-primary'), edit_house_path(house.id), :class => 'property-thumbnail',:style => 'position:absolute; margin-top:-34px; margin-left:10px;')%>
+                <% end %>
+
+
+                <div class="p-4 property-body">
+                  <a href="<%= house_likes_path(house.id) %>" id="like_<%= house.id %>" class="property-favorite <%= house.likes.find_by(user: 1) ? 'active' : '' %>" data-method="post" data-remote="true"><span class="icon-heart-o"></span></a>
+                  <h2 class="property-title"><a href="<%= house_path(house.id) %>"><%= house.title %></a></h2>
+                  <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span><%= house.address %></span>
+                  <strong class="property-price text-primary mb-3 d-block text-success"><%= number_to_currency(house.price, unit: 'Ar ', precision: 0, delimiter: '.') %></strong>
+                  <ul class="property-specs-wrap mb-3 mb-lg-0">.
+                      <% house.features.each do |feat| %>
+                    <li>
+                      <span class="property-specs"><%= feat.name %></span>
+                      <!-- <span class="property-specs-number">2 <sup>+</sup></span> -->
+                    </li>
+                    <% end %>
+                    <!-- <li>
+                      <span class="property-specs">Beds</span>
+                      <span class="property-specs-number">2 <sup>+</sup></span>
+
+                    </li>
+                    <li>
+                      <span class="property-specs">Baths</span>
+                      <span class="property-specs-number">2</span>
+
+                    </li>
+                    <li>
+                      <span class="property-specs">SQ FT</span>
+                      <span class="property-specs-number">7,000</span>
+
+                    </li> -->
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+        <% end %>
+
+    </div>
+</div>
+</div>
