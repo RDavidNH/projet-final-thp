@@ -36,16 +36,18 @@
                   </span>
                   <strong class="property-price text-primary mb-3 d-block text-success"><%= number_to_currency(house.price, unit: 'Ar ', precision: 0, delimiter: '.') %></strong>
                   <ul class="property-specs-wrap mb-3 mb-lg-0">.
+                      <li>
+                          <span class="property-specs" style="font-size:0.8em"><%= house.room_number %> Pièces</span>
+                      </li>
                       <% house.features.each do |feat| %>
-                    <li>
-                      <span class="property-specs"><%= feat.name %></span>
-                      <!-- <span class="property-specs-number">2 <sup>+</sup></span> -->
-                    </li>
-                    <% end %>
+                        <li>
+                          <span class="property-specs"><%= feat.name %></span>
+                          <!-- <span class="property-specs-number">2 <sup>+</sup></span> -->
+                        </li>
+                      <% end %>
                     <!-- <li>
                       <span class="property-specs">Beds</span>
                       <span class="property-specs-number">2 <sup>+</sup></span>
-
                     </li>
                     <li>
                       <span class="property-specs">Baths</span>
@@ -55,7 +57,6 @@
                     <li>
                       <span class="property-specs">SQ FT</span>
                       <span class="property-specs-number">7,000</span>
-
                     </li> -->
                   </ul>
 

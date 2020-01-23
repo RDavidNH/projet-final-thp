@@ -5,7 +5,7 @@ class HousesController < ApplicationController
 
     def index
         @title = 'Ventes et locations'
-        
+
         if params[:status].to_i == 1
             status = 'rent'
             @title = 'Locations'
@@ -86,9 +86,9 @@ class HousesController < ApplicationController
             type: Type.find_by(id: params[:house][:type_id])
         )
 
-        for picture in params[:photos]
-            @house.photos.attach(picture)
-        end
+        # for picture in params[:photos]
+        #     @house.photos.attach(picture)
+        # end
         # @house.photos.attach(params[:photos])
 
         @house.feature_ids=(params[:house][:features]);
