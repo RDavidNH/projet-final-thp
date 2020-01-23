@@ -485,9 +485,11 @@
       ***********************************************************************************************
   -->
 
-    <div class="testimonial-section">
-        <%= render 'layouts/testimonial_body' %>
-    </div>
+    <% if @testimonial.length > 0 %>
+        <div class="testimonial-section">
+            <%= render 'layouts/testimonial_body' %>
+        </div>
+    <% end %>
 
   <!--
 
