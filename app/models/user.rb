@@ -12,4 +12,29 @@ class User < ApplicationRecord
   has_one :testimonial, dependent: :destroy
   has_many :houses, dependent: :destroy
   has_many :comments, through: :houses, dependent: :destroy
+
+  # def change_post_user_status
+  #     self.can_post = true
+  #     self.post_count = 0
+  #     self.save
+  # end
+  def isGold
+    self.can_post = true
+    self.post_count = self.post_count + 3
+    self.save
+  end
+
+
+  def isRuby
+    self.can_post = true
+    self.post_count = self.post_count + 6
+    self.save
+  end
+
+  
+  def isDiamond
+    self.can_post = true
+    self.post_count = self.post_count + 15
+    self.save
+  end
 end

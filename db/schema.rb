@@ -140,7 +140,8 @@ ActiveRecord::Schema.define(version: 2020_01_08_065406) do
     t.string "phone"
     t.string "address"
     t.boolean "can_post", default: true
-    t.integer "post_count", default: 0
+    t.integer "post_count", default: 3
+    t.string "status", default: ""
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

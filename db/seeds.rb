@@ -44,7 +44,8 @@ users << User.create(
         role: 'admin',
         phone: '+261 34 11 111 11',
         address: 'Ivandry, Bâtiment Bloc 3, 5ème étage',
-        city: city_admin
+        city: city_admin,
+        status: ''
     )
 
 users << User.create(
@@ -66,10 +67,11 @@ users << User.create(
         lastname: Faker::Name.last_name,
         role: "user",
         can_post: true,
-        post_count: 0,
+        post_count: 3,
         phone: Faker::PhoneNumber.cell_phone_with_country_code,
         address: Faker::Address.full_address,
-        city: cities[rand(0..cities.size)]
+        city: cities[rand(0..cities.size)],
+        status: ''
     )
 end
 

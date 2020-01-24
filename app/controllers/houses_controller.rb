@@ -1,18 +1,31 @@
 class HousesController < ApplicationController
     before_action :authenticate_user, only: [:new, :edit, :update, :create, :destroy]
     before_action :can_post?, only: [:new, :create]
+    
+
     layout 'simple_layout', only: [:edit, :new]
 
     def index
-        @houses = House.all
+        @title = 'Ventes et locations'
+
+        if params[:status].to_i == 1
+            status = 'rent'
+            @title = 'Locations'
+        elsif params[:status].to_i == 2
+            status = 'sell'
+            @title = 'Ventes'
+        end
+
+        @houses = status ? House.where(:status => status) : House.all
+
         render layout: 'secondary_layout'
     end
 
     def show
         @house = House.find(params[:id])
 
-        puts "*"*33 
-        for h in @house.photos 
+        puts "*"*33
+        for h in @house.photos
             p url_for h
         end
         puts "*"*33
@@ -75,9 +88,9 @@ class HousesController < ApplicationController
             type: Type.find_by(id: params[:house][:type_id])
         )
 
-        for picture in params[:photos]
-            @house.photos.attach(picture)
-        end
+        # for picture in params[:photos]
+        #     @house.photos.attach(picture)
+        # end
         # @house.photos.attach(params[:photos])
 
         @house.feature_ids=(params[:house][:features]);
@@ -99,18 +112,19 @@ class HousesController < ApplicationController
     end
 
     def post_control
-        current_user.post_count += 1
-        current_user.save
-        if current_user.post_count == 3
-            current_user.can_post = false
+        if current_user.post_count != 0
+            current_user.post_count -= 1
             current_user.save
+            if current_user.post_count == 0
+                current_user.can_post = false
+                current_user.save
+            end
         end
     end
 
-
     def can_post?
-        if current_user.post_count > 3
-            redirect_to '/'
+        if current_user.can_post == false
+            redirect_to offerservice_index_path
         end
     end
 end

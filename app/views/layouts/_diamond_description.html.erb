@@ -1,0 +1,81 @@
+<%= render 'shared/hoomies_nav' %>
+
+<%= render 'shared/home_carousel' %>
+
+<style>
+    .offer-img-center 
+    {
+        margin-left: 84px;
+    }
+
+    .offer-icon 
+        {
+            color: blueviolet;
+        }
+
+    .offer-title-h2 
+        {
+            color: blueviolet;
+        }
+
+    .stripe-button-el
+        {
+           margin-left: 3px; 
+        }
+
+    .stripe-button-el span
+        {
+            min-width: 400px;
+        }
+</style>
+<div class="container">
+    <div class="row">
+        <h2 class="offer-title-h2">Avec notre Pack Gold Créez une annonce optimisée
+gratuitement</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="row">
+                <h4 class="offer-title-h2"> <span class="icon icon-camera offer-icon"></span> 3 photos</h4>
+                <p> Une annonce immobilière, ça commence par de belles photos ! Vous pouvez en télécharger jusqu'à 3.</p>
+            </div>
+
+            <div class="row">
+                <h4 class="offer-title-h2"> <span class="icon icon-search offer-icon"></span> Visibilité</h4>
+                <p>Remontée régulière en tête de liste : mettez votre bien en avant ! Vendez plus rapidemmen avec hoomies</p>
+            </div>
+
+            <div class="row">
+                <h4 class="offer-title-h2"> <span class="icon icon-file offer-icon"></span> 1000 Caractères</h4>
+                <p>Environnement, description du logement, prestations : vous pouvez tout dire (et même mettre en gras le + important).</p>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="row offer-img-center">
+                <img src="<%= image_url('houses/room1-big.jpeg') %>" alt="" />
+            <div class="row">
+                <%= render 'shared/stripe_form' %> 
+            </div>
+
+            </div>  
+        </div>
+       
+        <div class="offset-md-1 col-md-3">
+             <div class="row">
+                <h4 class="offer-title-h2"><span class="icon icon-edit offer-icon"></span> Modifications illlimitée</h4>
+                <p>Ajustez votre annonce quand vous voulez par Internet ou par téléphone : c'est gratuit.</p>
+            </div>
+
+            <div class="row">
+                <h4 class="offer-title-h2"><span class="icon icon-map offer-icon"></span> Carte du quartier</h4>
+                <p>Une carte détaillée de l'adresse du bien. Les acquéreurs situent précisément le quartier.</p>
+            </div>
+            
+            <div class="row">
+                <h4 class="offer-title-h2"><span class="icon icon-home offer-icon"></span> Interface de gestion</h4>
+                <p>Une carte détaillée de l'adresse du bien. Les acquéreurs situent précisément le quartier.</p>
+            </div>
+        </div>
+    </div>
+</div>

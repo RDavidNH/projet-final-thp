@@ -1,0 +1,7 @@
+<% if @offerstype === "Gold" %>
+  <%= render 'layouts/gold_description'%>
+<% elsif @offerstype === "Ruby" %>
+  <%= render 'layouts/ruby_description'%>
+<% elsif @offerstype === "Diamond" %>
+  <%= render 'layouts/diamond_description'%>
+<% end %>
