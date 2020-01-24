@@ -34,6 +34,9 @@ class ChargesController < ApplicationController
         elsif params[:offerstype] == 'Diamond' && params[:amount] = 500
           current_user.isDiamond
         end
+        # Redirect to new house
+        redirect_to new_house_path
+
       # current_user.change_post_user_status
       rescue Stripe::CardError => e
         flash[:error] = e.message
