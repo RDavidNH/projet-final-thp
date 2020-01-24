@@ -36,7 +36,7 @@ city_admin = City.create(
     )
 end
 
-admin = User.create(
+users << User.create(
         email: 'hoomiesadmin@yopmail.com',
         password: 'hoomiesadmin',
         firstname: 'Admin',
@@ -46,6 +46,17 @@ admin = User.create(
         address: 'Ivandry, Bâtiment Bloc 3, 5ème étage',
         city: city_admin,
         status: ''
+    )
+
+users << User.create(
+        email: 'hsowner@yopmail.com',
+        password: 'adminadmin',
+        firstname: 'Owner',
+        lastname: 'Hoomies',
+        role: 'owner',
+        phone: '+261 34 11 111 11',
+        address: 'Ivandry, Bâtiment Bloc 3, 5ème étage',
+        city: cities.sample
     )
 
 10.times do |i|

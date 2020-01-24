@@ -43,10 +43,10 @@
                                 <a href="#">Je cherche</a>
                                 <ul class="dropdown arrow-top">
                                     <li>
-                                        <a href="#">À louer</a>
+                                        <a href="<%= houses_path %>?status=1">À louer</a>
                                     </li>
                                     <li>
-                                        <a href="#">À vendre</a>
+                                        <a href="<%= houses_path %>?status=2">À vendre</a>
                                     </li>
                                     <li>
                                         <a href="<%= houses_path %>">Toutes les offres</a>
@@ -62,7 +62,7 @@
                              <li class="has-children">
                                   <a href="#">
                                         <% if current_user.avatar.attached? %>
-                                            <%= image_tag current_user.avatar, class:"avatar"%> 
+                                            <%= image_tag current_user.avatar, class:"avatar"%>
                                         <% else %>
                                             <i class="icon-user-o"> </i>
                                         <% end %>
@@ -94,7 +94,7 @@
                                   </ul>
                              </li>
                              <% if current_user.role == 'admin' || current_user.role == 'owner' %>
-                                <li> 
+                                <li>
                                     <%= link_to("Dashboard", rails_admin_path)%>
                                 </li>
                              <% end %>
@@ -107,8 +107,6 @@
                                 </ul>
                             </li>
                         <% end %>
-
-
 
                         </ul>
                     </nav>
