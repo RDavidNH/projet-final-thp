@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
 
   def index
-  	@user = current_user
+    @user = current_user
+    @path_url_is_new = false
   	@testimonial = Testimonial.all
 
     @types = Type.all
