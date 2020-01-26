@@ -34,6 +34,7 @@ class HousesController < ApplicationController
     end
 
     def new
+        @path_url_is_new = true
         @house = House.new
     end
 

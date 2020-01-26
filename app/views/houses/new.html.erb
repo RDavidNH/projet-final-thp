@@ -1,3 +1,23 @@
+<style>
+.notifyjs-container{
+    left: -250px !important;
+}
+</style>
+<script>
+    $(function(){
+        $(".icon-notifications").notify(
+            'Vous avez <% if current_user.post_count === 1 %> <%= current_user.post_count%> announce restant <% else %> <%= current_user.post_count%> anounces  restants <% end %> !',
+            'info'
+        );
+    });
+
+    $(".icon-notifications").mouseenter(function(){
+        $(".icon-notifications").notify(
+            'Vous avez <% if current_user.post_count === 1 %> <%= current_user.post_count%> announce restant <% else %> <%= current_user.post_count%> anounces  restants <% end %> !',
+            'info'
+        );
+    });
+</script>
 <div class="container my-5">
     <div class="row">
         <div class="col-sm-12">
