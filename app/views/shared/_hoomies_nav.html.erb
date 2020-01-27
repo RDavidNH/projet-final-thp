@@ -39,14 +39,15 @@
                             <li>
                                 <a href="<%= new_house_path %>">Créer une annonce</a>
                             </li>
+                            
                             <li class="has-children">
                                 <a href="#">Je cherche</a>
                                 <ul class="dropdown arrow-top">
                                     <li>
-                                        <a href="<%= houses_path %>?status=1">À louer</a>
+                                        <a href="<%= houses_path %>?status=1">Maison à louer</a>
                                     </li>
                                     <li>
-                                        <a href="<%= houses_path %>?status=2">À vendre</a>
+                                        <a href="<%= houses_path %>?status=2">Maison à vendre</a>
                                     </li>
                                     <li>
                                         <a href="<%= houses_path %>">Toutes les offres</a>
@@ -82,13 +83,13 @@
                                        </li>
                                        <li>
                                             <%= link_to(edit_user_registration_path, method: :get) do %>
-                                                <i class="icon-edit"></i> Editer profil
+                                                <i class="fa fa-edit"></i> Editer profil
                                             <% end %>
                                        </li>
 
                                        <li>
                                             <%= link_to(destroy_user_session_path, method: :delete) do %>
-                                                <i class="icon-delete"></i> Se déconnecter
+                                                <i class="fa fa-sign-out"></i> Se déconnecter
                                             <% end %>
                                        </li>
                                   </ul>
@@ -98,12 +99,15 @@
                                     <%= link_to("Dashboard", rails_admin_path)%>
                                 </li>
                              <% end %>
+                             <% if @path_url_is_new === true %>
+                                 <span class="icon icon-notifications" style="color:aliceblue;font-size: 27px;position: relative;top: 5px;"></span>
+                             <% end %>
                         <% else %>
                             <li class="has-children">
                                 <a href="#" role="button"><i class="icon-user-o mr-1"></i>Connexion</a>
                                 <ul class="dropdown arrow-top" role="menu">
-                                    <li><a href="#" id="log-in" data-toggle="modal" data-target="#signinModal"> Se connecter </a></li>
-                                    <li><a href="#" id="sign-up" data-toggle="modal" data-target="#signupModal">S'inscrire</a></li>
+                                    <li><a href="#" id="log-in" data-toggle="modal" data-target="#signinModal"> <i class="fa fa-sign-in"></i> Se connecter </a></li>
+                                    <li><a href="#" id="sign-up" data-toggle="modal" data-target="#signupModal"><i class="fa fa-user-plus"></i> S'inscrire</a></li>
                                 </ul>
                             </li>
                         <% end %>

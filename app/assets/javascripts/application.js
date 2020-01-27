@@ -19,6 +19,7 @@
 //= require animsition.min
 //= require jquery-migrate-3.0.1.min
 //= require jquery-ui
+//= require notify.min
 //= require popper.min
 //= require bootstrap.min
 //= require owl.carousel.min
