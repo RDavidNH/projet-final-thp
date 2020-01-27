@@ -47,7 +47,8 @@ class ChargesController < ApplicationController
     end
     
   end
-
+ 
+  
   # Check if params amount sending via form is valid
   def amount_isvalid?(amount)
     amount = amount.to_i
