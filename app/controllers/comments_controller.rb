@@ -1,10 +1,8 @@
 class CommentsController < ApplicationController
 
     def create
-        p params
-
         @comment = Comment.new(
-            user: User.find(1),
+            user: current_user,
             commentable: House.find(params[:house_id]),
             content: params[:comment][:content]
         )
@@ -12,7 +10,6 @@ class CommentsController < ApplicationController
         if @comment.save
             redirect_to house_path(params[:house_id])
         end
-
     end
 
     def update
@@ -20,8 +17,6 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-        p params
-
         house = House.find(params[:house_id])
         house.comments.destroy(params[:id])
 
