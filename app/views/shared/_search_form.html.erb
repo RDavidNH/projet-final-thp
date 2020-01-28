@@ -1,13 +1,14 @@
 <div class="site-section site-section-sm pb-0">
-  <div class="container">
+  <div class="container mb-5">
     <div class="row">
       <form action="<%= houses_filter_path %>" method="GET" class="form-search col-md-12" style="margin-top: -100px;">
         <div class="row  align-items-end">
           <div class="col-md-3">
             <label for="type">Types</label>
             <div class="select-wrap">
-              <span class="icon icon-arrow_drop_down"></span>
-              <select name="type" id="type" class="form-control d-block rounded-0">
+              <span class="fa fa-sort-down" style="position:absolute;top:21%;right:5%;z-index:-1;font-size:1.3em"></span>
+              <div style="background:white;height:100%;width:100%;position:absolute;z-index:-2;"></div>
+              <select name="type" id="type" class="form-control d-block rounded-0" style="background:none">
                   <option value="all">Tous</option>
                 <% @types.each do |type| %>
                     <option value="<%= type.id %>"><%= type.name %></option>
@@ -15,30 +16,51 @@
               </select>
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <label for="status">Type d'offre</label>
             <div class="select-wrap">
-              <span class="icon icon-arrow_drop_down"></span>
-              <select name="status" id="status" class="form-control d-block rounded-0">
+              <span class="fa fa-sort-down" style="position:absolute;top:21%;right:5%;z-index:-1;font-size:1.3em"></span>
+              <div style="background:white;height:100%;width:100%;position:absolute;z-index:-2;"></div>
+              <select name="status" id="status" class="form-control d-block rounded-0" style="background:none">
                   <% @statuses.each do |status, label| %>
                       <option value="<%= status %>"><%= label %></option>
                   <% end %>
               </select>
             </div>
           </div>
-          <div class="col-md-3">
+          <div id="filterform-district" class="col-md-4 col-md-7" style="transition: 0.3s all ease-out">
             <label for="district">Quartier</label>
             <div class="select-wrap">
-              <span class="icon icon-arrow_drop_down"></span>
-              <select name="district" id="district" class="form-control d-block rounded-0">
+              <span class="fa fa-sort-down" style="position:absolute;top:21%;right:5%;z-index:-1;font-size:1.3em"></span>
+              <div style="background:white;height:100%;width:100%;position:absolute;z-index:-2;"></div>
+              <select name="district" id="district" class="form-control d-block rounded-0" style="background:none">
                   <% @districts.each do |district| %>
                       <option value="<%= district.id %>"><%= district.name %></option>
                   <% end %>
               </select>
             </div>
           </div>
-          <div class="col-md-3">
-            <button type="submit" name="button" class="btn btn-success text-white btn-block rounded-0">
+          <div id="filterform-price" class="col-md-3" style="display:none">
+            <label for="price">Prix</label>
+            <div class="select-wrap">
+              <span class="fa fa-sort-down" style="position:absolute;top:21%;right:5%;z-index:-1;font-size:1.3em"></span>
+              <div style="background:white;height:100%;width:100%;position:absolute;z-index:-2;"></div>
+              <select name="rent_price" id="filterform-price-rent" class="form-control rounded-0" style="background:none">
+                  <% @rent_prices.each do |key, price| %>
+                      <option value="<%= key %>"><%= price %></option>
+                  <% end %>
+              </select>
+              <select name="sell_price" id="filterform-price-sell" class="form-control rounded-0" style="background:none">
+                  <% @sell_prices.each do |key, price| %>
+                      <option value="<%= key %>"><%= price %></option>
+                  <% end %>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mx-auto ">
+            <button type="submit" name="button" class="btn btn-success text-white btn-block rounded-0 mt-2">
                 Chercher
             </button>
           </div>
@@ -46,34 +68,64 @@
       </form>
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-12">
         <div class="view-options bg-white py-3 px-3 d-md-flex align-items-center">
-          <!-- <div class="mr-auto">
+          <div class="mr-auto">
             <a href="index.html" class="icon-view view-module active"><span class="icon-view_module"></span></a>
             <a href="view-list.html" class="icon-view view-list"><span class="icon-view_list"></span></a>
 
-          </div> -->
-          <!-- <div class="ml-auto d-flex align-items-center">
+          </div>
+          <div class="ml-auto d-flex align-items-center">
             <div>
               <a href="<%= houses_path %>" class="view-list px-3 border-right active">Tous</a>
               <a href="#" class="view-list px-3 border-right">Locations</a>
               <a href="#" class="view-list px-3">Ventes</a>
-            </div> -->
+            </div>
 
 
-            <!-- <div class="select-wrap">
+            <div class="select-wrap">
               <span class="icon icon-arrow_drop_down"></span>
               <select class="form-control form-control-sm d-block rounded-0">
                 <option value="">Sort by</option>
                 <option value="">Price Ascending</option>
                 <option value="">Price Descending</option>
               </select>
-            </div> -->
-          <!-- </div> -->
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
 </div>
+
+<script type="text/javascript">
+    $(function () {
+        $('[name="status"]').on('change', function (e) {
+            var selectedStatus = e.target.options[e.target.selectedIndex].value;
+
+            if (selectedStatus == 'all') {
+                $('#filterform-price').slideUp(200, function () {
+                    $('#filterform-district').addClass('col-md-7')
+                })
+            }
+            if (selectedStatus == 'rent') {
+                $('#filterform-district').removeClass('col-md-7')
+                $('#filterform-price-sell').hide()
+                $('#filterform-price-rent').show()
+                setTimeout(function() {
+                    $("#filterform-price").slideDown(200);
+                },330)
+            }
+            if (selectedStatus == 'sell') {
+                $('#filterform-district').removeClass('col-md-7')
+                $('#filterform-price-rent').hide()
+                $('#filterform-price-sell').show()
+                setTimeout(function() {
+                    $("#filterform-price").slideDown(200);
+                },330)
+            }
+        })
+    });
+</script>
