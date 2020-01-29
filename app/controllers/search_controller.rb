@@ -1,10 +1,11 @@
 class SearchController < ApplicationController
 
     def filter
-        criterion = { :district_id => params[:district] }
+
+        criterion = { :district_id => params[:district].to_i }
 
         if params[:type] != 'all'
-            criterion[:type_id] = params[:type]
+            criterion[:type_id] = params[:type].to_i
         end
 
         if params[:status] == 'rent' || params[:status] == 'sell'
@@ -14,7 +15,7 @@ class SearchController < ApplicationController
         price_rent_ids = {
             1 => 100000..250000,
             2 => 250000..500000,
-            3 => 500000..100000,
+            3 => 500000..1000000,
         }
 
         price_sell_ids = {
@@ -25,7 +26,7 @@ class SearchController < ApplicationController
 
         if params[:status] == 'rent'
             criterion[:price] = price_rent_ids[params[:rent_price].to_i]
-        else params[:status] == 'sell'
+        elsif params[:status] == 'sell'
             criterion[:price] = price_sell_ids[params[:sell_price].to_i]
         end
 
