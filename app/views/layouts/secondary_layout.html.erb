@@ -18,6 +18,10 @@
 
     <%= render 'shared/small_nav_with_form' %>
 
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+
     <%= yield %>
 
     <%= render 'shared/footer' %>

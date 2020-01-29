@@ -1,9 +1,9 @@
 <div class="site-section site-section-sm pb-0">
-<div class="container">
+<div class="container my-4">
     <div class="row">
         <div class="col-sm-12 mb-2">
-            <h2>Résultat(s) de la recherche</h2>
-            <h3><%= @houses.length %> offres disponibles </h3>
+            <h2 class="text-primary">Résultat de la recherche</h2>
+            <h4><%= @houses.length %> offres disponibles </h4>
             <hr>
         </div>
     </div>
@@ -42,23 +42,8 @@
                       <% house.features.each do |feat| %>
                         <li>
                           <span class="property-specs"><%= feat.name %></span>
-                          <!-- <span class="property-specs-number">2 <sup>+</sup></span> -->
                         </li>
                       <% end %>
-                    <!-- <li>
-                      <span class="property-specs">Beds</span>
-                      <span class="property-specs-number">2 <sup>+</sup></span>
-
-                    </li>
-                    <li>
-                      <span class="property-specs">Baths</span>
-                      <span class="property-specs-number">2</span>
-
-                    </li>
-                    <li>
-                      <span class="property-specs">SQ FT</span>
-                      <span class="property-specs-number">7,000</span>
-                    </li> -->
                   </ul>
 
                 </div>
