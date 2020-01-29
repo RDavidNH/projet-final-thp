@@ -1,62 +1,101 @@
-<br>
-<div class="container">
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1> <%= @house.title %> </h1>
+        </div>
+    </div>
     <div class="row">
         <div class="col-sm-8">
-            <h1> <%= @house.title %> </h1>
-            <hr>
-            <div id="houses-carousel">
-                <div class="room-gallery">
-                    <%= image_tag('room1-big.jpeg', class: 'gallery-hightlight') %>
-                    <div class="room-preview">
-                        <div id="houses-single-carousel" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <%= image_tag('room1-big.jpeg') %>
-                                <%= image_tag('room2-big.jpeg') %>
-                                <%= image_tag('room3-big.jpeg') %>
-                            </div>
-                            <div class="carousel-item">
-                                <%= image_tag('room1-big.jpeg') %>
-                                <%= image_tag('room2-big.jpeg') %>
-                                <%= image_tag('room3-big.jpeg') %>
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#houses-single-carousel" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#houses-single-carousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                        </div>
-                        
-                    </div>
+            <div id="house-carousels" class="mb-3">
+                <div class="owl-carousel owl-highlight owl-theme">
+                    <div class="item" data-hash="a"><img src="<%= image_url('houses/room1-big.jpeg') %>"/></div>
+                    <div class="item" data-hash="b"><img src="<%= image_url('houses/room2-big.jpeg') %>"/></div>
+                    <div class="item" data-hash="c"><img src="<%= image_url('houses/room3-big.jpeg') %>"/></div>
+                    <div class="item"><h4>4</h4></div>
+                    <div class="item"><h4>5</h4></div>
+                    <div class="item"><h4>6</h4></div>
+                    <div class="item"><h4>7</h4></div>
+                    <div class="item"><h4>8</h4></div>
+                </div>
+                <div class="owl-carousel owl-preview owl-theme">
+                    <div class="item"><a href="#a"><img src="<%= image_url('houses/room1-big.jpeg') %>"/></a></div>
+                    <div class="item"><a href="#b"><img src="<%= image_url('houses/room2-big.jpeg') %>"/></a></div>
+                    <div class="item"><a href="#c"><img src="<%= image_url('houses/room3-big.jpeg') %>"/></a></div>
+                    <div class="item"><h4>4</h4></div>
+                    <div class="item"><h4>5</h4></div>
+                    <div class="item"><h4>6</h4></div>
+                    <div class="item"><h4>7</h4></div>
+                    <div class="item"><h4>8</h4></div>
                 </div>
             </div>
 
-            <br>
-
             <h2>Description</h2>
-
-            <% if ( @house.user ==  current_user )%>
-            <%=  link_to 'Modifier', edit_house_path(@house.id) %>
-            <%=  link_to 'Supprimer', house_path(@house.id), method: 'delete' %>
-            <%end%>
-            <p><%= @house.description %></p>
-            <p><%= @house.status %></p>
-
+            <div class="text-right">
+                <% if ( @house.user ==  current_user )%>
+                <%=  link_to 'Modifier', edit_house_path(@house.id) %>
+                <%=  link_to 'Supprimer', house_path(@house.id), method: 'delete' %>
+                <%end%>
+            </div>
+            <p class="text-justify">
+                <%= @house.description %>
+            </p>
 
         </div>
         <div class="col-sm-4">
+            <h3>Spécifications</h3>
+            <table class="table">
+                <tr>
+                    <th><span style="font-size:1.5em"><%= @house.room_number %> </span>Pièces</th>
+                    <td>
+                        <ul class="m-0 p-0 text-uppercase" style="font-size:0.8em">
+                            <% @house.features.each do |feat| %>
+                            <li> <%= feat.name %> </li>
+                            <% end %>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Quartier</th>
+                    <td><%= @house.district.name %></td>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <td><%= @house.type.name %></td>
+                </tr>
+                <tr>
+                    <th>Disponible</th>
+                    <td><%= @house.is_available ? 'Oui' : 'Non' %></td>
+                </tr>
+                <tr>
+                    <th>Prix</th>
+                    <td class="h4"><%= number_to_currency(@house.price, unit: 'Ar ', precision: 0, delimiter: '.') %></td>
+                </tr>
+            </table>
 
+            <br>
+
+            <h3>Propriétaire</h3>
+            <table class="table">
+                <tr>
+                    <th>Nom</th>
+                    <td><%= @house.user.firstname + ' ' + @house.user.lastname %></td>
+                </tr>
+                <tr>
+                    <th>Téléphone</th>
+                    <td><%= @house.user.phone %></td>
+                </tr>
+                <tr>
+                    <th>e-mail</th>
+                    <td><%= @house.user.email %></td>
+                </tr>
+            </table>
         </div>
     </div>
 
     <hr>
 
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-8">
             <h3>Laissez un commentaire</h3>
             <%= form_tag house_comments_path(@house.id), method: 'post' do %>
             <div class="form-group">
@@ -68,24 +107,60 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-12 mt-5">
-            <h3>Commentaires</h3>
+        <div class="col-sm-8 mt-4">
+            <h4 class="mb-3" style="font-weight:bold"><%= @house.comments.length %> Commentaires </h4>
 
+            <% if @house.comments.any? %>
             <% @house.comments.each do |comment| %>
-            <div class="media">
+            <div class="media mb-4" style="border-bottom:1px solid #9d9d9d">
                 <!--
                   <img src="..." class="mr-3" alt="...">
-                      -->
-                <div class="media-body">
-                    <h5 class="mt-0">
-                        <%= comment.user.firstname %> <%= comment.user.lastname %>
+                -->
+                <div class="media-body  pl-md-5">
+                    <h5 class="mt-0" style="font-weight:bold">
+                        <%= comment.user.firstname %>
+                        <%= comment.user.lastname %>
                     </h5>
-                    <%=  link_to 'Modifier', '#' %>
-                    <%=  link_to 'Supprimer', house_comment_path(@house.id, comment.id), method: 'delete' %>
-                    <p><%= comment.content %></p>
+                    <p class="text-justify">
+                        <%= comment.content %>
+                    </p>
+                    <div class="text-right">
+                        <%=  link_to 'Modifier', '#' %>
+                        <%=  link_to 'Supprimer', house_comment_path(@house.id, comment.id), method: 'delete' %>
+                    </div>
                 </div>
             </div>
             <% end %>
+
+            <% elsif %>
+            <h4 class="text-muted text-center">Aucun commentaire</h4>
+            <% end %>
+
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript">
+    $(function () {
+
+        $('.owl-highlight').owlCarousel({
+            items:1,
+            nav:true,
+            autoplay:true,
+            margin:10,
+            URLhashListener:true,
+            autoplayHoverPause:true,
+            startPosition: 'URLHash',
+            navText:['<span class="fa fa-chevron-left"></span>','<span class="fa fa-chevron-right"></span>']
+        });
+
+        $('.owl-preview').owlCarousel({
+            items:3,
+            nav: true,
+            margin:10,
+            navText:['<span class="fa fa-chevron-left"></span>','<span class="fa fa-chevron-right"></span>']
+        });
+
+    })
+</script>

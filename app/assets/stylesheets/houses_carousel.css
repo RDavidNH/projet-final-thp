@@ -1,95 +1,25 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  } */
-  
-  #houses-carousel {
-    /* height: 100vh; */
-    display: flex;
-    /* background: #ededed;
-    font-family: "Roboto", sans-serif; */
-  }
-  
-  .room-gallery {
-    /* width: 53%; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .room-description {
-    /* width: 60%; */
-    display: flex;
-    flex-direction: column;
-    /* background-color: #e2d2c0; */
-    color: rgb(41, 41, 41);
-    height: 500px;
-    width:50%;
-    padding-left: 49px;
-    padding-right: 0px;
-    border-left-width: 0px;
-    margin-top: 1%;
-    margin-left: 4%;
-  
-  
-  }
-  .room-description h1 {
-    padding: 10px;
-    font-size: 40px;
-  }
-  .room-description p {
-    font-size: 15px;
-  }
-  
-  .gallery-hightlight {
-    width: 80%;
-    /* height: 55%; */
-    /* margin-top: 60px; */
-  }
-  
-  .room-preview {
-    display: flex;
-    width: 80%;
-    border: 2px solid #d3baa0;
-  }
-  .room-preview img {
-    flex-grow: 1;
-    height: 100px;
-    opacity: 0.5;
-    transition: opacity 0.4s ease;
-    cursor: pointer;
-  }
-  
-  img.room-active {
-    opacity: 1;
-  }
-  
-  
-  a.nounderline:link
-  {
-  text-decoration:none;
-  color:black;
-  }
-  
-  .za{
-    font-family: Impact;
-  }
-  
-  .article{
-    padding-right: 26px;
-  }
-  
-  .loko{
-    font-family: Impact;
-    float: right;
-  }
+.owl-highlight > .owl-nav > .owl-prev {
+    top: 80%;
+    left: 0;
+    width: 10em;
+    background: #364e68;
+}
+.owl-highlight > .owl-nav > .owl-next {
+    top: 80%;
+    right: 0;
+    width: 10em;
+    background: #364e68;
+}
 
-  #houses-single-carousel {
-    width: 100%;
-  }
-
-  .carousel-item-next, .carousel-item-prev, .carousel-item.active {
-    display: flex;
-  }
+.owl-preview > .owl-nav > .owl-prev {
+    top: 80%;
+    left: 0;
+    width: 10em;
+    background: #364e68;
+}
+.owl-preview > .owl-nav > .owl-next {
+    top: 80%;
+    right: 0;
+    width: 10em;
+    background: #364e68;
+}
