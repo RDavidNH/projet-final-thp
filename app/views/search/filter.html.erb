@@ -27,15 +27,14 @@
                     <%= link_to(content_tag(:span, 'Modifier', :class => 'offer-type bg-primary'), edit_house_path(house.id), :class => 'property-thumbnail',:style => 'position:absolute; margin-top:-34px; margin-left:10px;')%>
                 <% end %>
 
-
                 <div class="p-4 property-body">
                   <a href="<%= house_likes_path(house.id) %>" id="like_<%= house.id %>" class="property-favorite <%= house.likes.find_by(user: 1) ? 'active' : '' %>" data-method="post" data-remote="true"><span class="icon-heart-o"></span></a>
-                  <h2 class="property-title m-0 mb-4"><a href="<%= house_path(house.id) %>"><%= house.title %></a></h2>
-                  <span class="property-location d-block mb-2">
+                  <h2 class="property-title m-0 mb-3"><a href="<%= house_path(house.id) %>"><%= house.title %></a></h2>
+                  <strong class="text-primary d-block"><%= house.type.name %></strong>
+                  <span class="property-location d-block">
                       <span class="property-icon icon-room"></span><%= house.district.name %>
                   </span>
-                  <strong class="property-price text-primary mb-3 d-block text-success"><%= number_to_currency(house.price, unit: 'Ar ', precision: 0, delimiter: '.') %></strong>
-                  <ul class="property-specs-wrap mb-3 mb-lg-0">.
+                  <ul class="property-specs-wrap">.
                       <li>
                           <span class="property-specs" style="font-size:0.8em"><%= house.room_number %> Pièces</span>
                       </li>
@@ -44,9 +43,18 @@
                           <span class="property-specs"><%= feat.name %></span>
                         </li>
                       <% end %>
+                    <!-- <li>
+                      <span class="property-specs">Beds</span>
+                      <span class="property-specs-number">2 <sup>+</sup></span>
+                    </li>
+                     -->
                   </ul>
-
+                  <div class="text-right">
+                      <strong class="property-price text-primary text-success"><%= number_to_currency(house.price, unit: 'Ar ', precision: 0, delimiter: '.') %></strong>
+                  </div>
                 </div>
+
+
               </div>
             </div>
         <% end %>
