@@ -84,23 +84,37 @@ end
 end
 
 features.each do |feat|
-    features_obj = Feature.create(
+    features_obj << Feature.create(
         name: feat,
         description: Faker::Lorem.paragraph(sentence_count: 5)
     )
 end
 
 20.times do |i|
-    House.create(
+
+    _status = status.sample
+
+    if _status == 'sell'
+        price = rand(10000000..30000000)
+    else _status == 'rent'
+        price = rand(100000..1000000)
+    end
+
+    house = House.create(
         title: "House #{i+1}",
         description: Faker::Lorem.paragraph(sentence_count: 15),
-        room_number: rand(1..6),
+        room_number: rand(2..6),
         address: Faker::Address.full_address,
-        price: 140000,
-        status: status.sample,
+        price: price,
+        status: _status,
         is_available: true,
         district: districts.sample,
         user: users.sample,
         type: types_obj.sample,
     )
+
+    rand(2..features_obj.length).times do |i|
+        house.features.push(features_obj.sample);
+    end
+
 end

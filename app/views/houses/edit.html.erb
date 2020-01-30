@@ -1,9 +1,9 @@
-<div class="container my-5">
+<div class="container my-4">
     <div class="row">
         <div class="col-sm-12">
 
-            <h1>Modifier</h1>
-            <h3><%= @house.title %></h3>
+            <h1 class="text-primary"><%= @house.title %></h1>
+            <h3>Modifier</h3>
 
             <%= form_tag url_for(action: 'update'), method: 'put', multipart: true do %>
             <div class="row">
@@ -91,24 +91,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
-                            <div class="col">
-                              <h3> Uploader les photos</h3>
-                              <div class="form-control-file border" style="margin-top: 10px; margin-bottom: 10px;">
-                                <%= label_tag 'photos'  do %>
-                                  <%= file_field_tag 'photos[]' %>
-                                  <%= file_field_tag 'photos[]' %>
-                                  <%= file_field_tag 'photos[]' %>
-                                <% end %>
-                              </div>
-
-                            </div>            
+                    <div class="form-row mt-4">
+                        <div class="col">
+                          <h4> Ajoutez des photos</h4>
+                          <div class="form-control-file border" style="margin-top: 10px; margin-bottom: 10px;">
+                            <%= label_tag 'photos'  do %>
+                              <%= file_field_tag 'photos[]' %>
+                              <%= file_field_tag 'photos[]' %>
+                              <%= file_field_tag 'photos[]' %>
+                            <% end %>
+                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            
-          
 
             <%= submit_tag 'Enregister les modifications', class: 'btn btn-primary'%>
             <% end %>
@@ -116,5 +112,3 @@
         </div>
     </div>
 </div>
-
-
