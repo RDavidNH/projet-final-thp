@@ -9,6 +9,7 @@ gem 'devise'
 gem 'stripe'
 gem 'faker'
 
+gem 'leaflet-rails'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
 gem 'mini_magick'
