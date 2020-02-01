@@ -12,7 +12,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string  :address
       t.boolean :can_post, default: true
       t.integer :post_count, default: 3
-      t.string  :status, default: ""
+      t.string  :offer_type, default: ""
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
