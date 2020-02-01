@@ -20,6 +20,7 @@ class User < ApplicationRecord
   # end
   def isGold
     self.can_post = true
+    self.offer_type = "gold"
     self.post_count = self.post_count + 3
     self.save
   end
@@ -27,6 +28,7 @@ class User < ApplicationRecord
 
   def isRuby
     self.can_post = true
+    self.offer_type = "ruby"
     self.post_count = self.post_count + 6
     self.save
   end
@@ -34,7 +36,14 @@ class User < ApplicationRecord
   
   def isDiamond
     self.can_post = true
+    self.offer_type = "diamond"
     self.post_count = self.post_count + 15
     self.save
   end
+
+  def set_user_role_to_owner
+    self.role = "owner"
+    self.save
+  end
+
 end
