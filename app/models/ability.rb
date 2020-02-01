@@ -41,6 +41,7 @@ class Ability
             can :read,House, user_id: user.id  #:all #House, user_id: user.id                 # allow everyone to read everything
             can :manage, House, user_id: user.id #:all #House, user_id: user.id
             can :read, District
+            can :manage, Comment
             # can :read, User, id: user.id
             can :read, Type
             can :read, Feature
