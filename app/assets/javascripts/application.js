@@ -14,7 +14,6 @@
 //= require activestorage
 // require turbolinks
 //
-//
 //= require jquery-3.3.1.min
 //= require animsition.min
 //= require jquery-migrate-3.0.1.min
@@ -42,4 +41,5 @@
 //= require countdowntime
 //= require login
 //= require bootstrap-dropdownhover.min
+//= require leaflet
 //= require_tree .
