@@ -62,9 +62,11 @@ class HousesController < ApplicationController
 
         if @house.save
             post_control
+            # add role to user for showing dashboard button
             if current_user.role === nil
                 current_user.set_user_role_to_owner
             end
+
             redirect_to house_path(@house.id), flash: {:success => 'Élément créé avec succès'}
         else
             render :new, layout: 'simple_layout'
