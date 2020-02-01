@@ -23,6 +23,8 @@ class HousesController < ApplicationController
 
     def show
         @house = House.find(params[:id])
+        @longitude = @house.district.longitude
+        @latitude  = @house.district.latitude 
 
         puts "*"*33
         for h in @house.photos
@@ -60,6 +62,9 @@ class HousesController < ApplicationController
 
         if @house.save
             post_control
+            if current_user.role === nil
+                current_user.set_user_role_to_owner
+            end
             redirect_to house_path(@house.id), flash: {:success => 'Élément créé avec succès'}
         else
             render :new, layout: 'simple_layout'
