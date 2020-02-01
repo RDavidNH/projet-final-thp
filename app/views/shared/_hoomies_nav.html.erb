@@ -87,6 +87,14 @@
                                             <% end %>
                                        </li>
 
+                                        <% if current_user.role == 'admin' || current_user.role == 'owner' %>
+                                            <li>
+                                                <%= link_to(rails_admin_path, method: :get) do %>
+                                                <i class="fa fa-line-chart"> Mes annonces</i>
+                                                <% end %>
+                                            </li>
+                                        <% end %>
+
                                        <li>
                                             <%= link_to(destroy_user_session_path, method: :delete) do %>
                                                 <i class="fa fa-sign-out"></i> Se déconnecter
@@ -94,11 +102,6 @@
                                        </li>
                                   </ul>
                              </li>
-                             <% if current_user.role == 'admin' || current_user.role == 'owner' %>
-                                <li>
-                                    <%= link_to("Dashboard", rails_admin_path)%>
-                                </li>
-                             <% end %>
                              <% if @path_url_is_new === true %>
                                  <span class="icon icon-notifications" style="color:aliceblue;font-size: 27px;position: relative;top: 5px;"></span>
                              <% end %>
