@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 2020_01_08_065406) do
 
   create_table "districts", force: :cascade do |t|
     t.string "name"
+    t.float "longitude"
+    t.float "latitude"
     t.text "description"
     t.bigint "city_id"
     t.datetime "created_at", null: false
@@ -141,7 +143,7 @@ ActiveRecord::Schema.define(version: 2020_01_08_065406) do
     t.string "address"
     t.boolean "can_post", default: true
     t.integer "post_count", default: 3
-    t.string "status", default: ""
+    t.string "offer_type", default: ""
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
