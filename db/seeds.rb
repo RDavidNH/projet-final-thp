@@ -45,7 +45,7 @@ users << User.create(
         phone: '+261 34 11 111 11',
         address: 'Ivandry, Bâtiment Bloc 3, 5ème étage',
         city: city_admin,
-        status: ''
+        offer_type: ''
     )
 
 users << User.create(
@@ -71,7 +71,7 @@ users << User.create(
         phone: Faker::PhoneNumber.cell_phone_with_country_code,
         address: Faker::Address.full_address,
         city: cities[rand(0..cities.size)],
-        status: ''
+        offer_type: ''
     )
 end
 
