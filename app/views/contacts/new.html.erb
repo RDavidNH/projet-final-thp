@@ -1,0 +1,75 @@
+<%= render 'shared/small_nav' %>
+
+<% if flash[:alert] %>
+  <div class="notification is-danger global-notification">
+    <p class="alert alert-danger" style="text-align: center;"><%= alert %></p>
+  </div>
+<% end %>
+<% if flash[:email] %>
+  <div class="notification is-danger global-notification">
+    <p class="alert alert-danger" style="text-align: center;"><%= alert %></p>
+  </div>
+<% end %>
+<div class="site-section">
+<div class="container">
+  <div class="row">
+ 
+    <div class="col-md-12 col-lg-8 mb-5">
+    
+                   
+      <%= form_tag contacts_path, method: "POST" , class: "p-5 bg-white border" do %>
+
+        <div class="row form-group">
+          <div class="col-md-12 mb-3 mb-md-0">
+            <label class="font-weight-bold" for="fullname">Full Name</label>
+            <input type="text" name="fullname" class="form-control" placeholder="Full Name">
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-12">
+            <label class="font-weight-bold" for="email">Email</label>
+            <input type="email" name="email" class="form-control" placeholder="Email Address">
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-12">
+            <label class="font-weight-bold" for="email">Subject</label>
+            <input type="text" name="subject" class="form-control" placeholder="Enter Subject">
+          </div>
+        </div>
+        
+
+        <div class="row form-group">
+          <div class="col-md-12">
+            <label class="font-weight-bold" for="message">Message</label> 
+            <textarea name="message" name="message" cols="30" rows="5" class="form-control" placeholder="Envoyez-nous un message"></textarea>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-md-12">
+            <%= submit_tag "Envoyer", class: "btn btn-primary py-2 px-4 rounded-0"%>
+          </div>
+        </div>
+
+    <% end %>
+    </div>
+    
+    <div class="col-lg-4">
+      <div class="p-4 mb-3 bg-white">
+        <h3 class="h6 text-black mb-3 text-uppercase">Contact Info</h3>
+        <p class="mb-0 font-weight-bold"> <i class="fa fa-map-marker"></i> Address</p>
+        <p class="mb-4"><%= @user.address %></p>
+
+        <p class="mb-0 font-weight-bold">Phone</p>
+        <p class="mb-4"><i class="fa fa-phone"> </i><%= link_to @user.phone, "tel:#{@user.phone}"%></p>
+
+        <p class="mb-0 font-weight-bold">Email Address</p>
+        <p class="mb-0"><i class="fa fa-envelope"></i> <%= mail_to @user.email %></p>
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+</div>
