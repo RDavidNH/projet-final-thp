@@ -109,8 +109,22 @@
                             <li class="has-children">
                                 <a href="#" role="button"><i class="icon-user-o mr-1"></i>Connexion</a>
                                 <ul class="dropdown arrow-top" role="menu">
-                                    <li><a href="#" id="log-in" data-toggle="modal" data-target="#signinModal"> <i class="fa fa-sign-in"></i> Se connecter </a></li>
-                                    <li><a href="#" id="sign-up" data-toggle="modal" data-target="#signupModal"><i class="fa fa-user-plus"></i> S'inscrire</a></li>
+                                    <li>
+                                        <!--
+                                            <a href="#" id="log-in" data-toggle="modal" data-target="#signinModal"> <i class="fa fa-sign-in"></i> Se connecter </a>
+                                        -->
+                                        <%= link_to(new_user_session_path, method: :get) do %>
+                                                <i class="fa fa-sign-in"></i> Se connecter
+                                        <% end %>
+                                    </li>
+                                    <li>
+                                        <%= link_to(new_user_registration_path, method: :get) do %>
+                                            <i class="fa fa-user-plus"></i> S'inscrire
+                                        <% end %>
+                                        <!-- 
+                                            <a href="#" id="sign-up" data-toggle="modal" data-target="#signupModal"><i class="fa fa-user-plus"></i> S'inscrire</a>
+                                        -->
+                                    </li>
                                 </ul>
                             </li>
                         <% end %>
