@@ -41,7 +41,6 @@
                     </div>
 
                     <br>
-                    <br>
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
@@ -51,6 +50,18 @@
                         </div>
                     </div>
                 <% end %>
+                <br>
+                    <div class="flex-c-m">
+                    
+                        <%= link_to(user_facebook_omniauth_authorize_path, class:'login100-social-item bg1') do %>
+                            <i class="fa fa-facebook"></i> 
+                        <%end%>
+
+                        <%= link_to(user_google_oauth2_omniauth_authorize_path, class:'login100-social-item bg3') do %>
+                            <i class="fa fa-google"></i> 
+                        <%end%>
+
+                    </div>
             </div>
         </div>
     </div>
