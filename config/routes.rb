@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get '/omniauth/failure' => 'users/omniauth_callbacks#failure'
   end
   resources :home, only: [:index]
+  resources :contacts, only: [:new, :create]
   resources :houses do
       resources :comments
       resources :likes, only: [:create, :destroy]
