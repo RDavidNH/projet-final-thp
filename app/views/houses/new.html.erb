@@ -38,12 +38,12 @@
             <div class="row">
                 <div class="col-sm-8">
                     <div class="form-group">
-                        <%= label_tag 'Titre' %>
+                        <%= label_tag 'Titre (6 à 10 caractères)' %>
                         <%= text_field :house, :title, class:'form-control' %>
                         <span class="text-danger"><%= @house.errors.messages[:title].first  %></span>
                     </div>
                     <div class="form-group">
-                        <%= label_tag 'Description' %>
+                        <%= label_tag 'Description (128 caractères minimum)' %>
                         <%= text_area :house, :description, class:'form-control', rows: 5 %>
                         <span class="text-danger"><%= @house.errors.messages[:description].first  %></span>
                     </div>
@@ -53,7 +53,7 @@
                         <span class="text-danger"><%= @house.errors.messages[:room_number].first  %></span>
                     </div>
                     <div class="form-group">
-                        <%= label_tag 'Adresse' %>
+                        <%= label_tag 'Adresse du bien' %>
                         <%= text_field :house, :address, class:'form-control' %>
                         <span class="text-danger"><%= @house.errors.messages[:address].first  %></span>
                     </div>
@@ -82,7 +82,7 @@
                     <div class="form-row">
                         <div class="col">
                             <div class="form-group">
-                                <%= label_tag 'Prix' %>
+                                <%= label_tag 'Prix en Ariary' %>
                                 <%= number_field :house, :price, class:'form-control' %>
                                 <span class="text-danger"><%= @house.errors.messages[:price].first  %></span>
                             </div>
