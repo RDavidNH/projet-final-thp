@@ -21,20 +21,20 @@
 
         <div class="row form-group">
           <div class="col-md-12 mb-3 mb-md-0">
-            <label class="font-weight-bold" for="fullname">Full Name</label>
-            <input type="text" name="fullname" class="form-control" placeholder="Full Name">
+            <label class="font-weight-bold" for="fullname">Nom(s) et Prénom(s)</label>
+            <input type="text" name="fullname" class="form-control" placeholder="Nom(s) et Prénom(s)">
           </div>
         </div>
         <div class="row form-group">
           <div class="col-md-12">
             <label class="font-weight-bold" for="email">Email</label>
-            <input type="email" name="email" class="form-control" placeholder="Email Address">
+            <input type="email" name="email" class="form-control" placeholder="Adresse émail">
           </div>
         </div>
         <div class="row form-group">
           <div class="col-md-12">
-            <label class="font-weight-bold" for="email">Subject</label>
-            <input type="text" name="subject" class="form-control" placeholder="Enter Subject">
+            <label class="font-weight-bold" for="email">Objet</label>
+            <input type="text" name="subject" class="form-control" placeholder="Objet">
           </div>
         </div>
         
@@ -57,14 +57,14 @@
     
     <div class="col-lg-4">
       <div class="p-4 mb-3 bg-white">
-        <h3 class="h6 text-black mb-3 text-uppercase">Contact Info</h3>
+        <h3 class="h6 text-black mb-3 text-uppercase">Nos coordonnées</h3>
         <p class="mb-0 font-weight-bold"> <i class="fa fa-map-marker"></i> Address</p>
         <p class="mb-4"><%= @user.address %></p>
 
-        <p class="mb-0 font-weight-bold">Phone</p>
+        <p class="mb-0 font-weight-bold">Téléphone</p>
         <p class="mb-4"><i class="fa fa-phone"> </i><%= link_to @user.phone, "tel:#{@user.phone}"%></p>
 
-        <p class="mb-0 font-weight-bold">Email Address</p>
+        <p class="mb-0 font-weight-bold">Adresse émail</p>
         <p class="mb-0"><i class="fa fa-envelope"></i> <%= mail_to @user.email %></p>
 
       </div>
