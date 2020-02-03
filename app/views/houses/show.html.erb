@@ -102,7 +102,29 @@
     </div>
 
     <hr>
+<br>
 
+<br>
+<h2 class="text-primary">Localisation</h2>
+<div class="map">
+
+    <%=
+        map(:center => {
+            :latlng => [-18.908281, 47.52692],
+        :zoom => 18
+        },
+        :markers => [
+            {
+                :latlng => [-18.908281, 47.52692],
+        }
+        ]
+        )
+    %>
+</div>
+
+<br>
+
+<br>
     <div class="row">
         <div class="col-sm-8">
             <h3>Laissez un commentaire</h3>
@@ -114,25 +136,21 @@
             <% end %>
         </div>
     </div>
-<br>
-<div class="row">
-<br>
-<h2 class="text-primary">Localisation</h2>
-    <div id="map">
-    <%=
-        map(:center => {
-            :latlng => [@longitude, @latitude],
-        :zoom => 18
-        },
-        :markers => [
-            {
-                :latlng => [@longitude, @latitude],
-        }
-        ]
-        )
-    %>
-    </div>
-</div>
+
+   
+
+<!--
+<%= map(:center => {
+  :latlng => [-18.908281, 47.52692],
+  :zoom => 18
+},
+    :markers => [
+        {
+            :latlng => [-18.908281, 47.52692],
+    }
+    ]
+) %>
+-->
 <% if @house.comments.length != 0 %>
 <div class="row">
 <br>
