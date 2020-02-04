@@ -1,7 +1,7 @@
 class HousesController < ApplicationController
     before_action :authenticate_user, only: [:new, :edit, :update, :create, :destroy]
     before_action :can_post?, only: [:new, :create]
-    
+
 
     layout 'simple_layout', only: [:edit, :new]
 
@@ -39,7 +39,17 @@ class HousesController < ApplicationController
     end
 
     def create
-        p current_user
+        puts "/"*55
+        # p current_user
+        p params
+        # p params[:photos][0]
+        # image = MiniMagick::Image.open(params[:photos][0].path()) # or user.avatar.path
+        # ii = image.crop('20x30+10+5')
+        # p ii.width
+        # image[:width] > image[:height]
+        puts "/"*55
+        # return ;
+
         @house = House.new(
             title: params[:house][:title],
             description: params[:house][:description],
@@ -53,10 +63,9 @@ class HousesController < ApplicationController
             type: Type.find_by(id: params[:house][:type_id])
         )
 
-
-        # @house.photos.attach(params[:photos])
-
         @house.feature_ids=(params[:house][:features]);
+
+        @house.photos.attach(params[:photos])
 
         if @house.save
             post_control
@@ -64,6 +73,48 @@ class HousesController < ApplicationController
         else
             render :new, layout: 'simple_layout'
         end
+
+
+        # respond_to do |format|
+            # format.html {
+            #     @house.title = params[:house][:title],
+            #     @house.description = params[:house][:description],
+            #     @house.room_number = params[:house][:room_number],
+            #     @house.address = params[:house][:address],
+            #     @house.price = params[:house][:price],
+            #     @house.status = params[:house][:status],
+            #     @house.is_available = true,
+            #     @house.user = current_user,
+            #     @house.district = District.find_by(id: params[:house][:district_id]),
+            #     @house.type = Type.find_by(id: params[:house][:type_id])
+            #
+            #     if @house.save
+            #         post_control
+            #         redirect_to house_path(@house.id), flash: {:success => 'Élément créé avec succès'}
+            #     else
+            #         render :new, layout: 'simple_layout'
+            #     end
+            # }
+            # format.json {
+                # puts "ok" * 55
+                # @house = House.new(
+                #     title: params[:house][:title],
+                #     description: params[:house][:description],
+                #     room_number: params[:house][:room_number],
+                #     address: params[:house][:address],
+                #     price: params[:house][:price],
+                #     status: params[:house][:status],
+                #     is_available: true,
+                #     user: current_user,
+                #     district: District.find_by(id: params[:house][:district_id]),
+                #     type: Type.find_by(id: params[:house][:type_id])
+                # )
+                #
+                # @house.feature_ids=(params[:house][:features]);
+
+
+            # }
+        # end
 
     end
 

@@ -8,24 +8,21 @@
         <div class="col-sm-8">
             <div id="house-carousels" class="mb-5">
                 <div class="owl-carousel owl-highlight owl-theme">
-                    <div class="item" data-hash="a"><%= image_tag 'room1_big.jpeg' %></div>
-                    <div class="item" data-hash="b"><%= image_tag 'room2_big.jpeg' %></div>
+                    <% @house.photos.length.times do |i| %>
+                        <div class="item" data-hash="item-<%= i %>"><img src="<%= url_for(@house.photos[i]) %>"></div>
+                    <% end %>
+                    <!-- <div class="item" data-hash="b"><%= image_tag 'room2_big.jpeg' %></div>
                     <div class="item" data-hash="c"><%= image_tag 'room3_big.jpeg' %></div>
-                    <div class="item"><h4>4</h4></div>
-                    <div class="item"><h4>5</h4></div>
-                    <div class="item"><h4>6</h4></div>
-                    <div class="item"><h4>7</h4></div>
-                    <div class="item"><h4>8</h4></div>
+                    <div class="item"><h4>4</h4></div> -->
                 </div>
                 <div class="owl-carousel owl-preview owl-theme">
-                    <div class="item"><a href="#a"><%= image_tag 'room1_big.jpeg' %></a></div>
+                    <% @house.photos.length.times do |i| %>
+                        <div class="item"><a href="#item-<%= i %>"><img src="<%= url_for(@house.photos[i]) %>"></a></div>
+                    <% end %>
+                    <!-- <div class="item"><a href="#a"><%= image_tag 'room1_big.jpeg' %></a></div>
                     <div class="item"><a href="#b"><%= image_tag 'room2_big.jpeg' %></a></div>
                     <div class="item"><a href="#c"><%= image_tag 'room3_big.jpeg' %></a></div>
-                    <div class="item"><h4>4</h4></div>
-                    <div class="item"><h4>5</h4></div>
-                    <div class="item"><h4>6</h4></div>
-                    <div class="item"><h4>7</h4></div>
-                    <div class="item"><h4>8</h4></div>
+                    <div class="item"><h4>4</h4></div> -->
                 </div>
             </div>
 
@@ -150,7 +147,6 @@
         $('.owl-highlight').owlCarousel({
             items:1,
             nav:true,
-            autoplay:true,
             margin:10,
             URLhashListener:true,
             autoplayHoverPause:true,
@@ -159,7 +155,8 @@
         });
 
         $('.owl-preview').owlCarousel({
-            items:3,
+            items:4,
+            autoplay:true,
             nav: true,
             margin:10,
             navText:['<span class="fa fa-chevron-left"></span>','<span class="fa fa-chevron-right"></span>']
