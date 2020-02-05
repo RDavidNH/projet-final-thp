@@ -32,8 +32,12 @@
                              <% end %>
 
                           </div>
-                          <img src="<%= image_url('img_1.jpg') %>" alt="Image" class="img-fluid">
-                        </a>
+                          <% if house.photos.length > 0 %>
+                            <img src="<%= url_for(house.photos[0]) %>" alt="Image" class="img-fluid">
+                          <% else %>
+                            <img src="<%= image_url('img_1.jpg') %>" alt="Image" class="img-fluid">
+                          <% end %>
+                          </a>
                         <% if house.user == current_user %>
                             <%= link_to(content_tag(:span, 'Modifier', :class => 'offer-type bg-primary'), edit_house_path(house.id), :class => 'property-thumbnail',:style => 'position:absolute; margin-top:-34px; margin-left:10px;')%>
                         <% end %>

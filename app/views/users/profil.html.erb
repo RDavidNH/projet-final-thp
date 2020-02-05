@@ -1,34 +1,92 @@
+<style>
+    .form-profil-body {
+    text-align: center;
+    height: 500px;
+    margin-top: 100px;
+}
+
+
+.logo1 {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+} 
+
+td {
+    text-align: center;
+}
+</style>
+
+<div class="container form-pofil-body">
+	<div class="row justify-content-sm-center">
+	    <div class="col-sm-6">
+		    <%= image_tag 'identite.png', class: "logo1 offset-sm-5" %>
+        </div>
+    </div>
+</div>
+
+<br>
 <div class="container">
     <div class="row">
-        <h1>Mon profil</h1>
+        <div class="offset-sm-3 col-sm-6">
+            <table class="table table-hover">
+                <tr>
+                    <th>Nom</th>
+                    <td><%= @user.firstname %></td>
+                </tr>
+                <tr>
+                    <th>Prenom</th>
+                    <td><%= @user.lastname %></td>
+                </tr>
+
+                <tr>
+                    <th>Email</th>
+                    <td><%= @user.email %></td>
+                </tr>
+
+                <tr>
+                    <th>Téléphone</th>
+                    <td><%= @user.phone %></td>
+                </tr>
+
+                <tr>
+                    <th>Adresse</th>
+                    <td><%= @user.address    %></td>
+                </tr>
+            </table>
+        </div>
     </div>
+</div>
+
     <div class="row">
-        <% if current_user.testimonial %>
-            <a id="Edit-testimonial" data-toggle="modal" data-target="#testimonialModal " href="#">
-                Edit Testimonial
-            </a>
-        <% else %>
-            <%= form_tag testimonials_path do %>
-                 <div class="form-group">
-                <%= label_tag 'Temoignage' %>
-                    <%= text_area_tag :testimonial, '', class: 'form-control', placeholder: 'Laissez votre temoignage ...' %>
-                </div>
-                <p> Rate Us</p>
-                <ul class="rating-ul">
-                    <% for index in 1..5 do %>
+        <div class="offset-5">
+            <% if current_user.testimonial %>
+                <a id="Edit-testimonial" data-toggle="modal" data-target="#testimonialModal " href="#">
+                    Edit Testimonial
+                </a>
+            <% else %>
+                <%= form_tag testimonials_path do %>
+                    <div class="form-group">
+                    <%= label_tag 'Temoignage' %>
+                        <%= text_area_tag :testimonial, '', class: 'form-control', placeholder: 'Laissez votre temoignage ...' %>
+                    </div>
+                    <p> Rate Us</p>
+                    <ul class="rating-ul">
+                        <% for index in 1..5 do %>
 
-                        <%= label_tag "rating_#{index}" do %>
-                            <li class="stars-ico stars-icon-off" style="float: left" data-stars="<%= index %>" id="starid-<%= index %>"> </li>
+                            <%= label_tag "rating_#{index}" do %>
+                                <li class="stars-ico stars-icon-off" style="float: left" data-stars="<%= index %>" id="starid-<%= index %>"> </li>
 
-                            <%= radio_button_tag :rating, index%>
+                                <%= radio_button_tag :rating, index%>
+                            <% end %>
+
                         <% end %>
-
-                    <% end %>
-                </ul>
-                    <br>
-                <%= submit_tag "Valider", class: 'btn btn-primary btn-block' %>
-        <% end %>
-        <% end %>
+                    </ul>
+                        <br>
+                    <%= submit_tag "Valider", class: 'btn btn-primary btn-block' %>
+            <% end %>
+            <% end %>
+        </div>
     </div>
 </div>
 

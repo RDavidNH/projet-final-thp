@@ -22,8 +22,8 @@ districts_hash = {
         longitude: 47.52692
     },
     "Itaosy" => {
-        latitude: -18.908281,
-        longitude: 47.470842
+        latitude: -18.909364,
+        longitude: 47.477037
     },
     "Ambohijatovo" => {
         latitude: -18.702808,
@@ -114,8 +114,8 @@ districts_hash = {
         longitude: 47.524365
     },
     "Ambohibao" => {
-        latitude: -18.916398,
-        longitude: 47.518638
+        latitude: -18.848989,
+        longitude: 47.475185
     },
     "Amboditsiry" => {
         latitude: -18.885443,
@@ -189,8 +189,9 @@ users << User.create(
         address: 'Ivandry, Bâtiment Bloc 3, 5ème étage',
         city: cities.sample
     )
+    
 
-10.times do |i|
+3.times do |i|
     users << User.create(
         email: "hsadmin#{i}@yopmail.com",
         password: "adminadmin",
@@ -221,31 +222,31 @@ features.each do |feat|
     )
 end
 
-20.times do |i|
+# 20.times do |i|
 
-    _status = status.sample
+#     _status = status.sample
 
-    if _status == 'sell'
-        price = rand(10000000..30000000)
-    else _status == 'rent'
-        price = rand(100000..1000000)
-    end
+#     if _status == 'sell'
+#         price = rand(10000000..30000000)
+#     else _status == 'rent'
+#         price = rand(100000..1000000)
+#     end
 
-    house = House.create(
-        title: "House #{i+1}",
-        description: Faker::Lorem.paragraph(sentence_count: 15),
-        room_number: rand(2..6),
-        address: Faker::Address.full_address,
-        price: price,
-        status: _status,
-        is_available: true,
-        district: districts.sample,
-        user: users.sample,
-        type: types_obj.sample,
-    )
+#     house = House.create(
+#         title: "House #{i+1}",
+#         description: Faker::Lorem.paragraph(sentence_count: 15),
+#         room_number: rand(2..6),
+#         address: Faker::Address.full_address,
+#         price: price,
+#         status: _status,
+#         is_available: true,
+#         district: districts.sample,
+#         user: users.sample,
+#         type: types_obj.sample,
+#     )
 
-    rand(2..features_obj.length).times do |i|
-        house.features.push(features_obj.sample);
-    end
+#     rand(2..features_obj.length).times do |i|
+#         house.features.push(features_obj.sample);
+#     end
 
-end
+# end
