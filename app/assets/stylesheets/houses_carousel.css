@@ -23,3 +23,13 @@
     width: 10em;
     background: #364e68;
 }
+
+#house-carousels .owl-highlight .item {
+    height: 500px;
+    overflow: hidden;
+}
+
+#house-carousels .owl-preview .item {
+    height: 155px;
+    overflow: hidden;
+}
