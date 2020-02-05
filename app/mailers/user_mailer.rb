@@ -1,10 +1,10 @@
 class UserMailer < ApplicationMailer
-    default from: 'beanjarahoussen@gmail.com'
+    default from: 'hoomiesmada@gmail.com'
 
 	def welcome_email(user)
 		@user = user
-		@url = 'http://monsite.fr//login'
+		@url = 'https://hoomies.herokuapp.com'
 
-		mail(to: @user.email, subject: 'Bienvenue chez nous ! Votre inscription a été enrgistré avec succées')
+		mail(to: @user.email, subject: 'Bienvenue chez hoomies ! Votre inscription a été enrgistré avec succées')
 	end
 end

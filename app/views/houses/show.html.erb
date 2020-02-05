@@ -98,6 +98,39 @@
                     <td><%= @house.user.email %></td>
                 </tr>
             </table>
+            <%= form_tag contacts_path, method: "POST" , class: "p-1 bg-white border" do %>
+
+                <div class="row form-group">
+                  <div class="col-md-12 mb-3 mb-md-0">
+                    <label class="font-weight-bold" for="fullname">Nom(s) et Prénom(s)</label>
+                    <input type="text" name="fullname" class="form-control" placeholder="Nom(s) et Prénom(s)">
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-md-12">
+                    <label class="font-weight-bold" for="email">Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="Adresse émail">
+                    <input type="hidden" name="owner_email" value=<%= @house.user.email %>>
+                    <input type="hidden" name="current_house" value=<%= @house.id %>>
+
+
+                    </div>
+                </div>
+    
+                <div class="row form-group">
+                  <div class="col-md-12">
+                    <label class="font-weight-bold" for="message">Message</label> 
+                    <textarea name="message" name="message" cols="30" rows="5" class="form-control" placeholder="Envoyez-nous un message"></textarea>
+                  </div>
+                </div>
+        
+                <div class="row form-group">
+                  <div class="col-md-12">
+                    <%= submit_tag "Contactez", class: "btn btn-primary"%>
+                  </div>
+                </div>
+        
+            <% end %>
         </div>
     </div>
 
