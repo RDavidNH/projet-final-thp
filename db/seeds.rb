@@ -189,6 +189,7 @@ users << User.create(
         address: 'Ivandry, Bâtiment Bloc 3, 5ème étage',
         city: cities.sample
     )
+    
 
 3.times do |i|
     users << User.create(
