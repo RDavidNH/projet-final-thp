@@ -23,6 +23,7 @@
                   </div>
                   <img src="<%= image_url('img_1.jpg') %>" alt="Image" class="img-fluid">
                 </a>
+                
                 <% if house.user == current_user %>
                     <%= link_to(content_tag(:span, 'Modifier', :class => 'offer-type bg-primary'), edit_house_path(house.id), :class => 'property-thumbnail',:style => 'position:absolute; margin-top:-34px; margin-left:10px;')%>
                 <% end %>
