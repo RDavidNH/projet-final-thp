@@ -21,12 +21,16 @@
                      <% end %>
 
                   </div>
-                  <img src="<%= image_url('img_1.jpg') %>" alt="Image" class="img-fluid">
+                  <% if house.photos.length > 0 %>
+                    <img src="<%= url_for(house.photos[0]) %>" alt="Image" class="img-fluid">
+                  <% else %>
+                    <img src="<%= image_url('img_1.jpg') %>" alt="Image" class="img-fluid">
+                  <% end %>
+                  
                 </a>
                 <% if house.user == current_user %>
                     <%= link_to(content_tag(:span, 'Modifier', :class => 'offer-type bg-primary'), edit_house_path(house.id), :class => 'property-thumbnail',:style => 'position:absolute; margin-top:-34px; margin-left:10px;')%>
                 <% end %>
-
 
                 <div class="p-4 property-body">
                   <a href="<%= house_likes_path(house.id) %>" id="like_<%= house.id %>" class="property-favorite <%= house.likes.find_by(user: 1) ? 'active' : '' %>" data-method="post" data-remote="true"><span class="icon-heart-o"></span></a>
