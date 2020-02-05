@@ -25,13 +25,13 @@ class ChargesController < ApplicationController
           customer: customer.id,
           amount: @amount,
           description: 'Rails Stripe customer',
-          currency: 'eur'
+          currency: 'mga'
         )
-        if params[:offerstype] == 'Gold' && params[:amount] = 100
+        if params[:offerstype] == 'Gold' && params[:amount] = 10000
           current_user.isGold
-        elsif params[:offerstype] == 'Ruby' && params[:amount] = 300
+        elsif params[:offerstype] == 'Ruby' && params[:amount] = 30000
           current_user.isRuby
-        elsif params[:offerstype] == 'Diamond' && params[:amount] = 500
+        elsif params[:offerstype] == 'Diamond' && params[:amount] = 50000
           current_user.isDiamond
         end
         # Redirect to new house
@@ -52,9 +52,9 @@ class ChargesController < ApplicationController
   # Check if params amount sending via form is valid
   def amount_isvalid?(amount)
     amount = amount.to_i
-    gold = 100
-    ruby = 300
-    diamond = 500
+    gold = 10000
+    ruby = 30000
+    diamond = 50000
     if amount === gold || amount === ruby || amount === diamond
       return true
     else

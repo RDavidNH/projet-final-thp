@@ -222,31 +222,31 @@ features.each do |feat|
     )
 end
 
-# 20.times do |i|
+20.times do |i|
 
-#     _status = status.sample
+    _status = status.sample
 
-#     if _status == 'sell'
-#         price = rand(10000000..30000000)
-#     else _status == 'rent'
-#         price = rand(100000..1000000)
-#     end
+    if _status == 'sell'
+        price = rand(10000000..30000000)
+    else _status == 'rent'
+        price = rand(100000..1000000)
+    end
 
-#     house = House.create(
-#         title: "House #{i+1}",
-#         description: Faker::Lorem.paragraph(sentence_count: 15),
-#         room_number: rand(2..6),
-#         address: Faker::Address.full_address,
-#         price: price,
-#         status: _status,
-#         is_available: true,
-#         district: districts.sample,
-#         user: users.sample,
-#         type: types_obj.sample,
-#     )
+    house = House.create(
+        title: "House #{i+1}",
+        description: Faker::Lorem.paragraph(sentence_count: 15),
+        room_number: rand(2..6),
+        address: Faker::Address.full_address,
+        price: price,
+        status: _status,
+        is_available: true,
+        district: districts.sample,
+        user: users.sample,
+        type: types_obj.sample,
+    )
 
-#     rand(2..features_obj.length).times do |i|
-#         house.features.push(features_obj.sample);
-#     end
+    rand(2..features_obj.length).times do |i|
+        house.features.push(features_obj.sample);
+    end
 
-# end
+end

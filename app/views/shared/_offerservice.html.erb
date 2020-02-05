@@ -1,0 +1,105 @@
+
+<div class="container" style="margin-top: 40px;">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row justify-content-center">
+                <div class="col-md-7 text-center">
+                    <div class="site-section-title">
+                        <h2 class="text-primary"> Nos Formules</h2>
+                      <hr>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 ">
+            <div class="card">
+                <div class="card-body gold">
+                    <span class="card-title offerservice"> Gold </span>
+                    <div class="row subtitle">
+                        <h3 style="color: floralwhite;"> Postez Votre annonce </h3>
+                    </div>
+                    <div class="row">
+                        <p class="card-text inner-text">
+                            Testez le marché sans vous engager. Vous publiez votre annonce gratuitement. Vous voyez ce que ça donne.
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <p class="inner-cond">
+                            <b>Inclus</b> : 3 annonces de 6 photos. Suivi des performances de l'annonce. Modifications gratuites et illimitées.
+                        </p>
+                    </div>
+
+                    <%= form_tag charges_new_path, method: "GET" do %>
+                    <input type="text" , value="10000" , name="amount" , hidden>
+                    <input type="text" , value="Gold" , name="offerstype" , hidden>
+
+                    <%= submit_tag "En savoir plus", class: "btn btn-primary"%>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body ruby">
+                    <span class="card-title offerservice">Ruby</span>
+                    <div class="row subtitle">
+                        <h3 style="color: blue"> Des maison à Vendre </h3>
+                    </div>
+                    <div class="row">
+                        <p class="card-text inner-text">
+                            Nôtre pack classique vous apporte tout ce dont vous avez besoin!
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <p class="inner-cond">
+                            <b>Inclus</b> : 10 annonces de 12 photos. Suivi des performances de l'annonce. Modifications gratuites et illimitées. Interface de gestion de la vente.
+                        </p>
+                    </div>
+
+                    <%= form_tag charges_new_path, method: "GET" do %>
+                    <input type="text" , value="30000" , name="amount" , hidden>
+                    <input type="text" , value="Ruby" , name="offerstype" , hidden>
+
+                    <%= submit_tag "En savoir plus", class: "btn btn-primary"%>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body diamond">
+                    <span class="card-title offerservice">Diamond</span>
+                    <div class="row subtitle">
+                        <h3 style="color: darkviolet"> Offre sans limite </h3>
+                    </div>
+
+                    <div class="row">
+                        <p class="card-text inner-text">
+                            Nôtre pack diamond vous permet de publier vos annonces illimitées!
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <p class="inner-cond">
+                            <b>Inclus</b> : annonces illimitées de 15 photos pendant 6 mois. Suivi des performances de l'annonce. Modifications gratuites et illimitées. Interface de gestion de la vente.
+                        </p>
+                    </div>
+
+                    <%= form_tag charges_new_path, method: "GET" do %>
+                    <input type="text" , value="50000" , name="amount" , hidden>
+                    <input type="text" , value="Diamond" , name="offerstype" , hidden>
+                    <%= submit_tag "En savoir plus", class: "btn btn-primary"%>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
