@@ -150,7 +150,7 @@ class HousesController < ApplicationController
         # for picture in params[:photos]
         #     @house.photos.attach(picture)
         # end
-        # @house.photos.attach(params[:photos])
+        @house.photos.attach(params[:photos])
 
         @house.feature_ids=(params[:house][:features]);
 
