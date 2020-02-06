@@ -434,10 +434,10 @@ houses.each_with_index do |house, i|
 
     i += 1
     
-    4.times do |ii|
-        ii += 1
-        _house.photos.attach(io: File.open(File.join(Rails.root,"app/assets/images/houses/house#{i}/#{ii}.jpg")), filename: "#{ii}.jpg")
-    end
+    # 4.times do |ii|
+    #     ii += 1
+    #     _house.photos.attach(io: File.open(File.join(Rails.root,"app/assets/images/houses/house#{i}/#{ii}.jpg")), filename: "#{ii}.jpg")
+    # end
 
 
     # file = File.open(Rails.root.join('app', 'assets', 'images', 'img_5.jpg'))
