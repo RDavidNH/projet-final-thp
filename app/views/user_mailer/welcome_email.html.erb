@@ -2,15 +2,15 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" href="/home/anjara/Bureau/Rails Project/hoomies/vendor/assets/stylesheets/bootstrap.min.css">
   </head>
   <body>
-    <h1>Salut <%= @user.firstname %> et bienvenue chez nous !</h1>
-    <p>
-      Tu t'es inscrit sur la plateforme Hoomies en utilisant l'e-mail suivant : <%= @user.email %>.
-    </p>
-    <p>
-      Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
-    </p>
-    <p> À très vite sur monsite.fr !
+    <div class="container">
+      <h1>Salut <%= @user.firstname %> et bienvenue chez Hoomies !</h1>
+      <p>
+        Tu t'es inscrit sur la plateforme Hoomies en utilisant l'e-mail suivant : <%= @user.email %>.
+      </p>
+      <p> À très vite sur <a href="https://hoomies.herokuapp.com">Hoomies</a> !
+    </div>
   </body>
 </html>

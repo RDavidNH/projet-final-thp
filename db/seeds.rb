@@ -154,7 +154,7 @@ houses = [
             habitable très spacieux avec escalier à l'extérieur qui est un grand avantage
             pour un usage mixte de la maison.A L'extérieur se trouve un jardin , un coin
             cuisine , un abri voiture et un parking pour 5 voitures.",
-        :status => 'rent'
+        :status => 'sell'
     },
     {
         :title => "Une maison F4 meublée",
@@ -195,7 +195,7 @@ houses = [
     },
     {
         :title => "Belle maison à étage de type F5",
-        :description => "Hoomies met en location une maison F5 à Andoharanafotsy
+        :description => "Hoomies met en vente une maison F5 à Andoharanafotsy
             Cette belle maison à étage de type F5 est à 600m de la route nationale 7,
             elle se trouve dans un quartier calme avec des commodités à proximité :
             Pharmacie, boulangerie, commerce; école et cliniques. la maison comprend
@@ -207,7 +207,7 @@ houses = [
             gardien, un garage fermé avec une spacieuse salle de jeux au dessus,
             une grande cour gazonée avec jardin, une autre cour gazonnée à
             l'arrière pour des événements festif ( fête d'anniversaire ou autres).",
-        :status => 'rent'
+        :status => 'sell'
     },
     {
         :title => "Villa F4 avec jardin",
@@ -230,7 +230,7 @@ houses = [
     },
     {
         :title => "Belle villa F6 avec piscine",
-        :description => "Offre en location d'une belle villa F6 avec piscine à
+        :description => "Vente d'une belle villa F6 avec piscine à
             Ambohitrarahaba Hoomies vous propose cette grande villa de type F6 à
             Ambohitrarahaba, avec des commodités à proximité : écoles, transport,
             ... Sise dans un quartier résidentiel, la propriété est bien placée et
@@ -244,7 +244,7 @@ houses = [
             belle piscine, une cour entourée de jardin et arborée, un garage
             fermé pouvant contenir 2 voitures, un petit local pour suprésseur et
             une dépendance gardien.",
-        :status => 'rent'
+        :status => 'sell'
     },
     {
         :title => "Maison de type F5",
@@ -283,13 +283,13 @@ houses = [
     },
     {
         :title => "Villa à étage F4",
-        :description => "A louer une villa F4 à Ambatobe Antananarivo
+        :description => "A Vendre une villa F4 à Ambatobe Antananarivo
             Hoomies propose en location une villa à étage F4 à Ambatobe
             Elle se trouve dans un quartier réseidentiel calme avec une belle vue
             Elle est composé d'un living avec cheminée, une cuisine, une salle de bain au RDC.
             a l'étage 3 chambres avec placards, une salle d'eau, une comble aménageable.
             Elle possède un abri voiture, dépendance gardien,parking.",
-        :status => 'rent'
+        :status => 'sell'
     },
     {
         :title => "Grande villa F5",
@@ -311,7 +311,7 @@ houses = [
             3 chambres avec placards dont 1 avec SDB attenante - 1 SDB WC Dans la
             partie aile droite de la villa, 1 chambre+SDE + WC + buanderie(2pces)
             A l'extérieur: 1 grand hangar de 160m3. La villa est équipée d'une alarme.",
-        :status => 'rent'
+        :status => 'sell'
     }
 ]
 

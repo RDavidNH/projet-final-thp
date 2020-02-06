@@ -4,13 +4,23 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Bonjour,</h1>
-    <p>
-      Message de : .<%= @full_name%> <br>
-      Object : <%= @subject%>
-    </p>
-    <p>
-      Contenu: <%= @content_message %>.
-    </p>
+  <div class="container">
+    <h1>Bonjour, vous avez réçu un message venant de <%= @full_name %></h1>
+    <table class="table table-hover">
+          <tr>
+              <th>Message de </th>
+              <td><%= @full_name %></td>
+          </tr>
+          <tr>
+              <th>Objet </th>
+              <td><%= @subject %></td>
+          </tr>
+
+          <tr>
+              <th>Contenu </th>
+              <td><%= @content_message %></td>
+          </tr>
+      </table>
+  </div>
   </body>
 </html>
