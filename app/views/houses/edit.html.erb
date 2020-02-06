@@ -91,6 +91,7 @@
                             </div>
                         </div>
                     </div>
+                    <% if @house.photos.length < 4 %>
                     <div class="form-row mt-4">
                         <div class="col">
                           <h4> Ajoutez des photos</h4>
@@ -99,10 +100,12 @@
                               <%= file_field_tag 'photos[]' %>
                               <%= file_field_tag 'photos[]' %>
                               <%= file_field_tag 'photos[]' %>
+                              <%= file_field_tag 'photos[]' %>
                             <% end %>
                           </div>
                         </div>
                     </div>
+                    <% end %>
                 </div>
             </div>
 
@@ -110,5 +113,22 @@
             <% end %>
 
         </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div id="upload-previews" class="row">
+        <% @house.photos.each do |photo| %>
+            <div class="col-md-2" data-input="">
+                <div class="custom-control custom-checkbox custom-control-inline">
+                    <input type="checkbox" name="remove_photo[]" id="remove-photo-<%= photo.id %>" class="custom-control-input" value="<%= photo.id %>">
+                    <label for="remove-photo-<%= photo.id %>" class="custom-control-label">
+                        Supprimer
+                    </label>
+                </div>
+                <img src="<%= url_for(photo) %>" style="width:100%">
+            </div>
+        <% end %>
     </div>
 </div>
