@@ -1,6 +1,6 @@
 <script>
   $(function() {
-    $(".stripe-button-el").children().text('Payer avec Carte');
+    $(".stripe-button-el").children().text('Payer avec Carte : <%= @amount %> MGA');
   });
 </script>
 <%= form_tag charges_path do %>
