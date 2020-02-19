@@ -23,16 +23,28 @@
                      <div class="item" data-hash="b"><%= image_tag 'room2_big.jpeg' %></div>
                     <div class="item" data-hash="c"><%= image_tag 'room3_big.jpeg' %></div>
                     <div class="item"><h4>4</h4></div> -->
-                    <div class="item" data-hash="item-<%= 1 %>"><img src="<%= image_url("houses/house#{@house.id}/1.jpg") %>"></div>
-                    <div class="item" data-hash="item-<%= 2 %>"><img src="<%= image_url("houses/house#{@house.id}/2.jpg") %>"></div>
-                    <div class="item" data-hash="item-<%= 3 %>"><img src="<%= image_url("houses/house#{@house.id}/3.jpg") %>"></div>
-                    <div class="item" data-hash="item-<%= 4 %>"><img src="<%= image_url("houses/house#{@house.id}/4.jpg") %>"></div>
+                    <% if @house.photos.attached? %>
+                        <% @house.photos.length.times do |i| %>
+                            <div class="item" data-hash="item-<%= i %>"><img src="<%= url_for(@house.photos[i]) %>"></div>
+                        <% end %>
+                    <% else %>
+                        <div class="item" data-hash="item-<%= 1 %>"><img src="<%= image_url("houses/house#{@house.id}/1.jpg") %>"></div>
+                        <div class="item" data-hash="item-<%= 2 %>"><img src="<%= image_url("houses/house#{@house.id}/2.jpg") %>"></div>
+                        <div class="item" data-hash="item-<%= 3 %>"><img src="<%= image_url("houses/house#{@house.id}/3.jpg") %>"></div>
+                        <div class="item" data-hash="item-<%= 4 %>"><img src="<%= image_url("houses/house#{@house.id}/4.jpg") %>"></div>
+                    <% end %>
                 </div>
                 <div class="owl-carousel owl-preview owl-theme">
+                <% if @house.photos.attached? %>
+                    <% @house.photos.length.times do |i| %>
+                        <div class="item"><a href="#item-<%= i %>"><img src="<%= url_for(@house.photos[i]) %>"></a></div>
+                    <% end %>
+                <% else %>
                     <div class="item"><a href="#item-<%= 1 %>"><img src="<%= image_url("houses/house#{@house.id}/1.jpg") %>"></a></div>
                     <div class="item"><a href="#item-<%= 2 %>"><img src="<%= image_url("houses/house#{@house.id}/2.jpg") %>"></a></div>
                     <div class="item"><a href="#item-<%= 3 %>"><img src="<%= image_url("houses/house#{@house.id}/3.jpg") %>"></a></div>
                     <div class="item"><a href="#item-<%= 4 %>"><img src="<%= image_url("houses/house#{@house.id}/4.jpg") %>"></a></div>
+                <% end %>
                     <!--
                     <% @house.photos.length.times do |i| %>
                         <div class="item"><a href="#item-<%= i %>"><img src="<%= url_for(@house.photos[i]) %>"></a></div>
