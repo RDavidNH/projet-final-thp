@@ -435,19 +435,19 @@ houses.each_with_index do |house, i|
 
     i += 1
     
-    4.times do |ii|
-        ii += 1
-        _house.photos.attach(io: File.open(File.join(Rails.root,"app/assets/images/houses/house#{i}/#{ii}.jpg")), filename: "#{ii}.jpg")
-    end
+    # 4.times do |ii|
+    #     ii += 1
+    #     _house.photos.attach(io: File.open(File.join(Rails.root,"app/assets/images/houses/house#{i}/#{ii}.jpg")), filename: "#{ii}.jpg")
+    # end
 
 
     # file = File.open(Rails.root.join('app', 'assets', 'images', 'img_5.jpg'))
-    _house.photos.attach(io: File.open(File.join(Rails.root,'app/assets/images/img_5.jpg')), filename: 'img_5.jpg')
+    # _house.photos.attach(io: File.open(File.join(Rails.root,'app/assets/images/img_5.jpg')), filename: 'img_5.jpg')
     # _house.photos.attach(File.open(File.join(Rails.root,'app/assets/images/img_5.jpg')))
 
-    rand(3..features_obj.length).times do |i|
-        _house.features.push(features_obj.sample);
-    end
+    # rand(3..features_obj.length).times do |i|
+    #     _house.features.push(features_obj.sample);
+    # end
 
     _house.features.push(Feature.all.sample(rand(3..features.length)))
 

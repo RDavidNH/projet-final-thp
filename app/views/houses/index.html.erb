@@ -1,3 +1,8 @@
+<style>
+  .card-house-width {
+    height: 103.683px;
+  }
+</style>
 <div class="site-section site-section-sm pb-0">
 <div class="container mt-3">
     <div class="row">
@@ -24,9 +29,18 @@
                   <% if house.photos.length > 0 %>
                     <img src="<%= url_for(house.photos[0]) %>" alt="Image" class="img-fluid">
                   <% else %>
+                    <img src="<%= image_url("houses/house#{house.id}/1.jpg") %>" alt="Image" class="img-fluid"> 
+                  <% end %>
+                  <!-- 
+                  <% if house.photos.length > 0 %>
+                    <img src="<%= image_url("houses/house#{house.id}/1.jpg") %>" alt="Image" class="img-fluid"> 
+                    
+                    <img src="<%= url_for(house.photos[0]) %>" alt="Image" class="img-fluid">
+                    
+                  <% else %>
                     <img src="<%= image_url('img_1.jpg') %>" alt="Image" class="img-fluid">
                   <% end %>
-                  
+                  -->
                 </a>
                 <% if house.user == current_user %>
                     <%= link_to(content_tag(:span, 'Modifier', :class => 'offer-type bg-primary'), edit_house_path(house.id), :class => 'property-thumbnail',:style => 'position:absolute; margin-top:-34px; margin-left:10px;')%>
@@ -34,12 +48,17 @@
 
                 <div class="p-4 property-body">
                   <a href="<%= house_likes_path(house.id) %>" id="like_<%= house.id %>" class="property-favorite <%= house.likes.find_by(user: 1) ? 'active' : '' %>" data-method="post" data-remote="true"><span class="icon-heart-o"></span></a>
-                  <h2 class="property-title m-0 mb-3"><a href="<%= house_path(house.id) %>"><%= house.title %></a></h2>
+                  <% if house.title.length <= 27 %>
+                    <h2 class="property-title m-0 mb-3"><a href="<%= house_path(house.id) %>"><%= house.title %></a></h2>
+                    &nbsp;
+                  <% else %>
+                    <h2 class="property-title m-0 mb-3"><a href="<%= house_path(house.id) %>"><%= house.title %></a></h2>
+                  <% end %>
                   <strong class="text-primary d-block"><%= house.type.name %></strong>
                   <span class="property-location d-block">
                       <span class="property-icon icon-room"></span><%= house.district.name %>
                   </span>
-                  <ul class="property-specs-wrap">.
+                  <ul class="property-specs-wrap card-house-width">.
                       <li>
                           <span class="property-specs" style="font-size:0.8em"><%= house.room_number %> Pièces</span>
                       </li>
@@ -48,13 +67,15 @@
                           <span class="property-specs"><%= feat.name %></span>
                         </li>
                       <% end %>
+                      
                     <!-- <li>
                       <span class="property-specs">Beds</span>
                       <span class="property-specs-number">2 <sup>+</sup></span>
                     </li>
                      -->
                   </ul>
-                  <div class="text-right">
+                  
+                  <div class="text-right  ">
                       <strong class="property-price text-primary text-success"><%= number_to_currency(house.price, unit: 'Ar ', precision: 0, delimiter: '.') %></strong>
                   </div>
                 </div>
